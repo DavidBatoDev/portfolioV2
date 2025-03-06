@@ -121,7 +121,7 @@ export const Projects = () => {
             <div className="projects-section">
               <h2>Projects</h2>
               <p>
-                I've gained hands-on experience in full stack web development, working on various projects that showcase my skills across the entire web development spectrum. To explore more of my work, feel free to visit my GitHub: <a href="https://github.com/DavidBatoDev?tab=repositories">DavidBatoDev</a>, 
+                I've gained hands-on experience in full stack web development and other fields in tech, working on various projects that showcase my skills across the entire development spectrum. To explore more of my work, feel free to visit my GitHub: <a href="https://github.com/DavidBatoDev?tab=repositories">DavidBatoDev</a>, 
                 where you can see a range of projects I've contributed to and developed.
               </p>
               <Tab.Container id="projects-tabs" defaultActiveKey="first">
