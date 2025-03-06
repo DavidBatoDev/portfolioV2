@@ -5,7 +5,16 @@ import projImg2 from "../../assets/img/proj2.png";
 import projImg3 from "../../assets/img/proj3.png";
 import projImg4 from "../../assets/img/proj4.png";
 import projImg5 from "../../assets/img/proj5.png";
-import projImg6 from "../../assets/img/proj7.png";
+import projImg6 from "../../assets/img/proj6.png";
+import projImg7 from "../../assets/img/proj7.png";
+import projImg8 from "../../assets/img/proj8.png";
+import projImg9 from "../../assets/img/proj9.png";
+import projImg10 from "../../assets/img/proj10.png";
+import projImg11 from "../../assets/img/proj11.png";
+import projImg12 from "../../assets/img/proj12.png";
+import projImg13 from "../../assets/img/proj13.png";
+import projImg14 from "../../assets/img/proj14.png";
+import projImg15 from "../../assets/img/proj15.png";
 import './Projects.css';
 
 export const Projects = () => {
@@ -21,7 +30,7 @@ export const Projects = () => {
     {
       title: "PUP Alumni Portal For Graduates (PUPAG)",
       description: "Built using React as a Frontend, Uses PHP Laravel, MySql for Database, Websocket for real-time notification",
-      imgUrl: projImg6,
+      imgUrl: projImg7,
       link: "https://github.com/DavidBatoDev/pup_alumni_portal"
     },
     {
@@ -44,9 +53,63 @@ export const Projects = () => {
     },
     {
       title: "Student Curicullar Activity Manager (SCAM)",
-      description: "Built using Tkinter as a Frontend, Uses Flask Blueprint Structure, SQLAlchemy for Database, Websocket for real-time notes",
+      description: "Contributing to build it using Tkinter as a Frontend, Uses Flask Blueprint Structure, SQLAlchemy for Database, Websocket for real-time notes",
       imgUrl: projImg5,
       link: "https://github.com/DavidBatoDev/oop-scam-app"
+    },
+    {
+      title: "ElectrifAI Solutions PH Website",
+      description: "Contributing to the developement of the company website using react typescript",
+      imgUrl: projImg6,
+      link: "https://electrifai.tech/"
+    },
+    {
+      title: "ElectrifAI Solutions PH APP",
+      description: "Contributing to the developement of the company mobile application and website using react-native and supabase",
+      imgUrl: projImg8,
+      link: ""
+    },
+    {
+      title: "GDG XParky Points API",
+      description: "Built using Flask as Backend, uses Google API for classroom and sheets integration",
+      imgUrl: projImg9,
+      link: "https://github.com/DavidBatoDev/gdg-web-development-classroom-api"
+    },
+    {
+      title: "Email Spam Classifier Pytorch",
+      description: "Built using Pytorch, uses MLP for classification, uses Flask for API",
+      imgUrl: projImg10,
+      link: "https://github.com/DavidBatoDev/email_spam_classifier_pytorch"
+    },
+    {
+      title: "California Housing Price Prediction EDA",
+      description: "Built using Python, uses Pandas, Numpy, Matplotlib, Seaborn for EDA",
+      imgUrl: projImg12,
+      link: "https://github.com/DavidBatoDev/house-price-prediction-pytorch"
+    },
+    {
+      title: "Object Detection (OpenCV)",
+      description: "Built an OpenCV and leverage an existing model for object detection",
+      imgUrl: projImg11,
+      link: "https://github.com/DavidBatoDev/object-detection-opencv"
+    },
+    {
+      title: "Data Structure and Algorithm Visualizer",
+      description: "Built using React as a Frontend, uses framer for animation for visualizing data structures and algorithms",
+      imgUrl: projImg13,
+      link: "https://github.com/DavidBatoDev/data-structure-algo-visualization"
+    },
+    {
+      title: "Data Structure and Algorithm Visualizer (Mario Theme)",
+      description: "Built using React as a Frontend, uses framer for animation for visualizing data structures and algorithms",
+      imgUrl: projImg14,
+      link: "https://github.com/DavidBatoDev/data-structure-algo-mario-theme"
+    },
+    {
+      title: "OrbLink ESP32 Firebase",
+      description: "Uses ESP32 to connect two led orbs using Firebase",
+      imgUrl: projImg15,
+      link: "https://github.com/DavidBatoDev/orblink-esp32-firebase"
     },
   ];
 

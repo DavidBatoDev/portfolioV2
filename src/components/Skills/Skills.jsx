@@ -75,6 +75,11 @@ export const Skills = () => {
                                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React Logo" />
                                         <h5>React</h5>
                                     </div>
+                                  
+                                                                        <div className="item">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="NextJS Logo" />
+                                        <h5>NextJS</h5>
+                                    </div>
                                     <div className="item">
                                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js Logo" />
                                         <h5>Node.js</h5>
@@ -106,6 +111,32 @@ export const Skills = () => {
                                     <div className="item">
                                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg" alt="Firebase Logo" />
                                         <h5>Firebase</h5>
+                                    </div>
+
+                                    {/* Jupyter notebook */}
+                                    <div className="item">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter Logo" />
+                                        <h5>Jupyter Notebook</h5>
+                                    </div>
+
+                                    {/* Pytorch */}
+                                    <div className="item">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="Pytorch Logo" />
+                                        <h5>Pytorch</h5>
+                                    </div>
+
+                                    {/* Docker */}
+                                    <div className="item">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker Logo" />
+                                        <h5>Docker</h5>
+                                    </div>
+
+
+                                    
+                                    {/* Google Cloud */}
+                                    <div className="item">
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud Logo" />
+                                        <h5>Google Cloud</h5>
                                     </div>
                                     
 
@@ -146,6 +177,10 @@ export const Skills = () => {
                                         <span>React</span>
                                     </li>
                                     <li>
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="NextJS Logo" />
+                                        <span>NextJS</span>
+                                    </li>
+                                    <li>
                                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js Logo" />
                                         <span>Node.js</span>
                                     </li>
@@ -172,6 +207,23 @@ export const Skills = () => {
                                     <li>
                                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg" alt="Firebase Logo" />
                                         <span>Firebase</span>
+                                    </li>
+                                    <li>
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter Logo" />
+                                        <span>Jupyter Notebook</span>
+                                    </li>
+                                    <li>
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="Pytorch Logo" />
+                                        <span>Pytorch</span>
+                                    </li>
+                                    <li>
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker Logo" />
+                                        <span>Docker</span>
+                                    </li>
+                                    {/* Google cloud */}
+                                    <li>
+                                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud Logo" />
+                                        <span>Google Cloud</span>
                                     </li>
                                 </ul>
                             </div>

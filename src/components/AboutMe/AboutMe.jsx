@@ -55,6 +55,19 @@ export const AboutMe = () => {
             <h2 className="section-title">Experience</h2>
             <div className="experience-timeline">
             <div className="experience-item">
+                <FaLaptopCode className="experience-icon" />
+                <Card className="experience-card">
+                  <Card.Body>
+                    <Card.Title>ElectrifAI Sol'n PH</Card.Title>
+                    <Card.Subtitle className="mb-2 text-gray ">Product Head | Software Developer</Card.Subtitle>
+                    <Card.Text><strong>Time:</strong> July 2024 - Present</Card.Text>
+                    <Card.Text>
+                        Contributing to the developement of the company mobile application and website using react based technologies
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </div>
+            <div className="experience-item">
                 <FaUserGraduate className="experience-icon" />
                 <Card className="experience-card">
                   <Card.Body>
@@ -76,19 +89,6 @@ export const AboutMe = () => {
                     <Card.Text><strong>Time:</strong> September 2024 - Present</Card.Text>
                     <Card.Text>
                       Created and maintained the university's website and developed web applications for PUP Alumni Gradutes for DAP tracker reasearch.
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </div>
-              <div className="experience-item">
-                <FaLaptopCode className="experience-icon" />
-                <Card className="experience-card">
-                  <Card.Body>
-                    <Card.Title>ElectrifAI Sol'n PH</Card.Title>
-                    <Card.Subtitle className="mb-2 text-gray ">Product Head | Software Developer</Card.Subtitle>
-                    <Card.Text><strong>Time:</strong> July 2024 - Present</Card.Text>
-                    <Card.Text>
-                        Contributing to the developement of the company mobile application and website using react based technologies
                     </Card.Text>
                   </Card.Body>
                 </Card>
