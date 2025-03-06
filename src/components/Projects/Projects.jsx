@@ -65,7 +65,7 @@ export const Projects = () => {
     },
     {
       title: "ElectrifAI Solutions PH APP",
-      description: "Contributing to the developement of the company mobile application and website using react-native and supabase",
+      description: "Contributing to the developement of the company main mobile application using react-native and supabase",
       imgUrl: projImg8,
       link: ""
     },
