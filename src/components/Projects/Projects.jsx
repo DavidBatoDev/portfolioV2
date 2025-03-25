@@ -15,6 +15,10 @@ import projImg12 from "../../assets/img/proj12.png";
 import projImg13 from "../../assets/img/proj13.png";
 import projImg14 from "../../assets/img/proj14.png";
 import projImg15 from "../../assets/img/proj15.png";
+import projImg16 from "../../assets/img/proj16.png";
+import projImg17 from "../../assets/img/proj17.png";
+import projImg18 from "../../assets/img/proj18.png";
+import projImg19 from "../../assets/img/proj19.png";
 import './Projects.css';
 
 export const Projects = () => {
@@ -22,16 +26,34 @@ export const Projects = () => {
   const projects = [
     
     {
-      title: "Chat Application (ChatApp)",
+      title: "We Chat Application (Chat Application)",
       description: "Built using MERN stack, uses Socket.io for real-time chat functionality",
       imgUrl: projImg1,
       link: "https://github.com/DavidBatoDev/chat-application-mongodb"
     },
     {
-      title: "PUP Alumni Portal For Graduates (PUPAG)",
+      title: "PUP Alumni Portal For Graduates (PUPGS)",
       description: "Built using React as a Frontend, Uses PHP Laravel, MySql for Database, Websocket for real-time notification",
       imgUrl: projImg7,
       link: "https://github.com/DavidBatoDev/pup_alumni_portal"
+    },
+    {
+      title: "Arduino Day PH 2025 Website",
+      description: "Built using NextJS for client and server side rendering and uses tailwindcss and shadcn for styling and animations",
+      imgUrl: projImg16,
+      link: "https://github.com/DavidBatoDev/arduino-ph-2025"
+    },
+    {
+      title: "Alertech Smart Fire Alert System (Mobile App)",
+      description: "Developed a Smart Fire Alert System mobile app using React Native, Firebase FCM, Firestore, and ESP32 Arduino for real-time fire detection and alerts.",
+      imgUrl: projImg19,
+      link: "https://github.com/DavidBatoDev/alertech-mobile-app"
+    },
+    {
+      title: "Alertech Smart Fire Alert System (Website)",
+      description: "Created a companion web app for Fire Authorithy for the Smart Fire Alert System using React and Firebase Firestore, providing real-time monitoring alongside the mobile app and IoT integration",
+      imgUrl: projImg18,
+      link: "https://github.com/geraldsberongoy/Arduino-Hackathon-Web"
     },
     {
       title: "Real-estate Website (DavidEstate)",
@@ -64,7 +86,7 @@ export const Projects = () => {
       link: "https://electrifai.tech/"
     },
     {
-      title: "ElectrifAI Solutions PH APP",
+      title: "ElectrifAI Solutions PH Mobile App",
       description: "Contributing to the developement of the company main mobile application using react-native and supabase",
       imgUrl: projImg8,
       link: ""
@@ -106,8 +128,8 @@ export const Projects = () => {
       link: "https://github.com/DavidBatoDev/data-structure-algo-mario-theme"
     },
     {
-      title: "OrbLink ESP32 Firebase",
-      description: "Uses ESP32 to connect two led orbs using Firebase",
+      title: "Constellation Orb ESP32 Firebase",
+      description: "Uses ESP32 Arduino for IoT, Firebase Real time Database for Backend",
       imgUrl: projImg15,
       link: "https://github.com/DavidBatoDev/orblink-esp32-firebase"
     },
