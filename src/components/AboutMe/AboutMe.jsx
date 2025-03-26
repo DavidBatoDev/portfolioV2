@@ -71,11 +71,11 @@ export const AboutMe = () => {
                 <FaUserGraduate className="experience-icon" />
                 <Card className="experience-card">
                   <Card.Body>
-                    <Card.Title>AWS Cloud Club - Philippines</Card.Title>
-                    <Card.Subtitle className="mb-2 text-gray ">Backend Developer</Card.Subtitle>
+                    <Card.Title>GDG On Campus PUP</Card.Title>
+                    <Card.Subtitle className="mb-2 text-gray ">Web Development Co-Lead</Card.Subtitle>
                     <Card.Text><strong>Time:</strong> October 2024 - Present</Card.Text>
                     <Card.Text>
-                        Newly appointed Backend Devloper. Honed my skills in backend development and learned how to develop applications through various workshop within the club.
+                      Conducted workshops and seminars for 300+ students and developed web applications for the organization 
                     </Card.Text>
                   </Card.Body>
                 </Card>
