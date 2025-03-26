@@ -86,7 +86,7 @@ export const AboutMe = () => {
                   <Card.Body>
                     <Card.Title>PUP - ICTO</Card.Title>
                     <Card.Subtitle className="mb-2 text-gray">Full Stack Developer</Card.Subtitle>
-                    <Card.Text><strong>Time:</strong> September 2024 - Present</Card.Text>
+                    <Card.Text><strong>Time:</strong> September 2024 - February 2025</Card.Text>
                     <Card.Text>
                       Created and maintained the university's website and developed web applications for PUP Alumni Gradutes for DAP tracker reasearch.
                     </Card.Text>
