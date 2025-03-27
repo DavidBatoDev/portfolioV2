@@ -48,6 +48,12 @@ export const Banner = () => {
     }
   }
 
+  // download pdf
+  const download = () => {
+    window.open("https://drive.google.com/drive/u/0/folders/1_T6X1m2Uq3cOP7ul9Os-JPdKabDEsqQp", "_blank");
+  }
+
+
   return (
     <section className="banner" id="home">
       <Container>
@@ -61,7 +67,7 @@ export const Banner = () => {
                   <p> 
                   I am a highly motivated Software and aspiring AI Engineer, with a deep passion for technology and innovation. At 20 years old, my enthusiasm for software development, cloud technologies and artificial intelligence drives me to constantly seek new knowledge and skills, aiming to contribute meaningfully to the tech industry in the future
                   </p>
-                  <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                  <button onClick={download}>See CV <ArrowRightCircle size={25} /></button>
               </div>}
             </TrackVisibility>
           </Col>
