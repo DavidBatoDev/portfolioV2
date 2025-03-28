@@ -56,6 +56,24 @@ export const Projects = () => {
       link: "https://github.com/geraldsberongoy/Arduino-Hackathon-Web"
     },
     {
+      title: "ElectrifAI Solutions PH Website",
+      description: "Contributing to the developement of the company website using react typescript",
+      imgUrl: projImg6,
+      link: "https://electrifai.tech/"
+    },
+    {
+      title: "ElectrifAI Solutions PH Mobile App",
+      description: "Contributing to the developement of the company main mobile application using react-native and supabase",
+      imgUrl: projImg8,
+      link: ""
+    },
+    {
+      title: "GDG XParky Points API",
+      description: "Built using Flask as Backend, uses Google API for classroom and sheets integration",
+      imgUrl: projImg9,
+      link: "https://github.com/DavidBatoDev/gdg-web-development-classroom-api"
+    },
+    {
       title: "Real-estate Website (DavidEstate)",
       description: "Built using React as a Frontend, Express as a Backend, MongoDB for Database, JWT for Authentication, Redux for State Management",
       imgUrl: projImg2,
@@ -78,24 +96,6 @@ export const Projects = () => {
       description: "Contributing to build it using Tkinter as a Frontend, Uses Flask Blueprint Structure, SQLAlchemy for Database, Websocket for real-time notes",
       imgUrl: projImg5,
       link: "https://github.com/DavidBatoDev/oop-scam-app"
-    },
-    {
-      title: "ElectrifAI Solutions PH Website",
-      description: "Contributing to the developement of the company website using react typescript",
-      imgUrl: projImg6,
-      link: "https://electrifai.tech/"
-    },
-    {
-      title: "ElectrifAI Solutions PH Mobile App",
-      description: "Contributing to the developement of the company main mobile application using react-native and supabase",
-      imgUrl: projImg8,
-      link: ""
-    },
-    {
-      title: "GDG XParky Points API",
-      description: "Built using Flask as Backend, uses Google API for classroom and sheets integration",
-      imgUrl: projImg9,
-      link: "https://github.com/DavidBatoDev/gdg-web-development-classroom-api"
     },
     {
       title: "Email Spam Classifier Pytorch",
