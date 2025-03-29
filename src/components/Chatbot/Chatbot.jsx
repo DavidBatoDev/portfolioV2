@@ -7,6 +7,205 @@ const API_KEY = "AIzaSyBa7k2BCQg4d-30fPRgmB79yv8sYzDG2Sk";
 
 const genAI = new GoogleGenerativeAI(API_KEY);
 
+// Concise system prompt to fit within Gemini's limits
+const DAVID_RESUME_INFO = `
+David E. Bato-bato is a motivated software developer with 2 years of experience.
+
+Contact: (+63) 9944345742, batobatodavid20@gmail.com
+Profiles: GitHub, LinkedIn, Portfolio
+
+Education: 
+BS Computer Engineering at Polytechnic University of the Philippines (2023-Present)
+Achievements: President Lister, CHED Merit Scholar, Part of College of Engineering Student Council
+
+Experience:
+- Software Developer at ElectrifAI (Oct 2024-Present): Developed a web/mobile app for monitoring electricity consumption using React, TypeScript, React Native, and IoT with ESP32.
+- Software Development Co-Lead at Google Developer Students Club (Sep 2024-Present): Led web department, created website/backend, mentored 300+ students.
+- Full-Stack Developer at PUP ICTO (Aug 2024-Feb 2025): Built PUP alumni portal with PHP, Laravel, MySQL.
+
+Skills: HTML, CSS, JavaScript, TypeScript, Python, PHP, C++, React, Node, Express, Flask, Laravel, NextJS, Firebase, MySQL, MongoDB, Supabase, Docker, PyTorch, Google Cloud, Git/GitHub
+
+Projects:
+- Alertech Technologies: Fire detection system with IoT using React Native, Firebase, ESP32 with sensors
+- Chat Application with Sentiment Analysis: MERN stack app with real-time messaging and AI emotion detection
+- GDG XParky Points Backend: Flask API with Google Cloud integration
+- Arduino Day PH 2025 Website: NextJS, TypeScript, Vercel
+
+Certifications: AWS Cloud Practitioner, Generative AI with LLMs (DeepLearning.AI), Python Programmer Bootcamp
+`;
+
+// Structured data for detailed information
+const DAVID_RESUME = {
+  personal: {
+    name: "David E. Bato-bato",
+    contact: "(+63) 9944345742",
+    email: "batobatodavid20@gmail.com",
+    profiles: "GitHub, LinkedIn, Portfolio"
+  },
+  education: {
+    institution: "Polytechnic University of the Philippines - Sta. Mesa, Manila",
+    program: "Bachelor of Science in Computer Engineering",
+    duration: "August 2023-Present",
+    achievements: [
+      "Consistent President Lister",
+      "Awarded and currently holding Ched Merit Scholarship – HSSP",
+      "Part of College of Engineering Student Council Special Projects and Academic Affairs A.Y. 2023-2024"
+    ]
+  },
+  experience: [
+    {
+      title: "Software Developer | CCDO",
+      company: "ElectrifAI- Manila, National Capital Region",
+      duration: "October 2024–Present",
+      responsibilities: [
+        "Developed a comprehensive web and mobile application for monitoring household electricity consumption in real-time",
+        "Built web app using React and TypeScript, mobile app with React Native",
+        "Connected app with IoT device (ESP32) to collect kWh data from household electrical systems",
+        "Implemented real-time data updates to Supabase database"
+      ]
+    },
+    {
+      title: "Software Development Co-Lead",
+      organization: "Google Developer Students Club, Polytechnic University of the Philippines",
+      duration: "September 2024–Present",
+      responsibilities: [
+        "Led web department in implementing web technologies",
+        "Created organization's primary website and backend to automate tasks",
+        "Mentored 300+ students in software development",
+        "Facilitated discussions and fostered collaboration among students"
+      ]
+    },
+    {
+      title: "Full-Stack Developer",
+      organization: "PUP ICTO- Sta. Mesa, Manila",
+      duration: "August 2024–February 2025",
+      responsibilities: [
+        "Developed custom-built PUP alumni portal web application",
+        "Worked on design and backend infrastructure",
+        "Used PHP, Laravel, MySQL, and GoDaddy CI/CD Pipelines"
+      ]
+    }
+  ],
+  skills: {
+    languages: ["HTML", "CSS", "JavaScript", "TypeScript", "Python", "PHP", "C++"],
+    frameworks: ["React", "Vite", "Tailwind", "Bootstrap", "Node", "Express", "Flask", "Laravel", "NextJS", "Firebase", "Materials UI", "SqlAlchemy", "Eloquent ORM", "Web Sockets", "Socket.IO"],
+    databases: ["SQL", "NoSQL", "MySQL", "SQLite3", "Supabase", "MongoDB", "Firestore"],
+    other: ["Docker", "PyTorch", "Google Cloud"],
+    versionControl: ["Git", "GitHub"]
+  },
+  projects: [
+    {
+      name: "Alertech Technologies",
+      technologies: "React Native CLI, React, Firebase, ESP32 with DHT22 & MQ-2 Sensors",
+      description: [
+        "Integrated fire detection and alert system (mobile app, web dashboard, IoT device)",
+        "Engineered IoT firmware on ESP32 for environmental monitoring",
+        "Implemented mobile alerts via Firebase Cloud Messaging",
+        "Created responsive web dashboard for real-time monitoring",
+        "Developed Bayanihan (Neighbor Alert System) feature for community safety"
+      ]
+    },
+    {
+      name: "Chat Application with Sentiment Analysis AI",
+      technologies: "MongoDB, Express, React, Node.js, Socket.io, Firebase, Hugging Face Transformers",
+      description: [
+        "Full-featured chat app with real-time messaging, user authentication, group chats",
+        "Integrated sentiment analysis using pretrained transformer model",
+        "Implemented image uploads and JWT authentication",
+        "Used WebSockets for real-time updates",
+        "Added emotion-based message styling"
+      ]
+    },
+    {
+      name: "GDG X GDG XParky Points Backend",
+      technologies: "Python Flask, Google Cloud (Classroom, Sheets)",
+      description: [
+        "RESTful API to automate student participation points tracking",
+        "Integrated Google Classroom API for real-time class data",
+        "Used Google Sheets as dynamic database",
+        "Automated activity logging system"
+      ]
+    },
+    {
+      name: "Arduino Day PH 2025 Website",
+      technologies: "NextJS TypeScript, React Libraries, Vercel",
+      description: [
+        "Contributed to official Arduino Day PH 2025 website",
+        "Assisted in website deployment to Arduino Philippines site"
+      ]
+    }
+  ],
+  certifications: [
+    {
+      name: "AWS Cloud Practitioner Essentials",
+      issuer: "AWS",
+      date: "March 2025",
+      description: "Fundamentals of AWS cloud computing, architecture, and services"
+    },
+    {
+      name: "Generative AI with Large Language Models",
+      issuer: "DeepLearning.AI",
+      date: "March 2025",
+      description: "LLM development, optimization, fine-tuning, reinforcement learning, AI applications"
+    },
+    {
+      name: "Python Programmer Bootcamp",
+      issuer: "365 Data Science",
+      description: "Python fundamentals to advanced concepts, including NumPy, Pandas, and Matplotlib"
+    }
+  ]
+};
+
+// Helper function to get additional details based on query
+const getAdditionalDetails = (query) => {
+  query = query.toLowerCase();
+  let details = "";
+  
+  if (query.includes("project") || query.includes("alertech") || query.includes("arduino") || query.includes("fire") || query.includes("chat")) {
+    const relevantProjects = DAVID_RESUME.projects.filter(p => 
+      query.includes(p.name.toLowerCase()) || 
+      p.technologies.toLowerCase().split(", ").some(tech => query.includes(tech.toLowerCase()))
+    );
+    
+    if (relevantProjects.length > 0) {
+      details += "\n\nProject details:";
+      relevantProjects.forEach(project => {
+        details += `\n${project.name} (${project.technologies}):\n- ${project.description.join("\n- ")}`;
+      });
+    } else {
+      details += "\n\nProjects overview:";
+      DAVID_RESUME.projects.forEach(project => {
+        details += `\n- ${project.name}: ${project.description[0]}`;
+      });
+    }
+  }
+  
+  if (query.includes("experience") || query.includes("work") || query.includes("job") || query.includes("electrif") || query.includes("gdsc") || query.includes("pup")) {
+    const relevantExperience = DAVID_RESUME.experience.filter(e => 
+      (e.company && query.includes(e.company.toLowerCase())) || 
+      (e.organization && query.includes(e.organization.toLowerCase())) ||
+      query.includes(e.title.toLowerCase())
+    );
+    
+    if (relevantExperience.length > 0) {
+      details += "\n\nExperience details:";
+      relevantExperience.forEach(exp => {
+        details += `\n${exp.title} at ${exp.company || exp.organization} (${exp.duration}):\n- ${exp.responsibilities.join("\n- ")}`;
+      });
+    }
+  }
+  
+  if (query.includes("skill") || query.includes("technology") || query.includes("language") || query.includes("framework")) {
+    details += "\n\nSkills breakdown:";
+    details += `\n- Languages: ${DAVID_RESUME.skills.languages.join(", ")}`;
+    details += `\n- Frameworks/Libraries: ${DAVID_RESUME.skills.frameworks.join(", ")}`;
+    details += `\n- Databases: ${DAVID_RESUME.skills.databases.join(", ")}`;
+    details += `\n- Other technologies: ${DAVID_RESUME.skills.other.join(", ")}`;
+  }
+  
+  return details;
+};
+
 export const Chatbot = () => {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
@@ -14,6 +213,7 @@ export const Chatbot = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
   const textareaRef = useRef(null);
+  const [conversationHistory, setConversationHistory] = useState([]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -49,17 +249,43 @@ export const Chatbot = () => {
       textareaRef.current.style.height = "auto";
     }
 
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-
     try {
-      const result = await model.generateContent(input);
+      // Get additional details relevant to the query
+      const additionalDetails = getAdditionalDetails(input);
+      
+      // Create the context for this interaction
+      const contextMessage = `You are David's assistant. Answer as if you're representing David based on his resume information. ${DAVID_RESUME_INFO}${additionalDetails}`;
+      
+      // Update conversation history for context
+      const updatedHistory = [
+        ...conversationHistory,
+        { role: "user", parts: [{ text: input }] }
+      ];
+      setConversationHistory(updatedHistory);
+      
+      // Initialize the model
+      const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+      
+      // Generate content with proper formatting for Gemini API
+      const result = await model.generateContent({
+        contents: [{ role: "user", parts: [{ text: contextMessage + "\n\nUser question: " + input }] }]
+      });
+      
       const response = await result.response;
       const text = response.text();
 
+      // Update messages state with the response
       setMessages(prev => [
         ...prev, 
         { type: "bot", text, time: formatTime() }
       ]);
+      
+      // Update conversation history with the response
+      setConversationHistory([
+        ...updatedHistory,
+        { role: "model", parts: [{ text }] }
+      ]);
+      
     } catch (error) {
       console.error("Error:", error);
       setMessages(prev => [
@@ -105,7 +331,7 @@ export const Chatbot = () => {
           <div className="chatbot-header">
             <div className="chatbot-header-info">
               <div className="chatbot-avatar">
-                <div className="avatar-img">G</div>
+                <div className="avatar-img">D</div>
                 <div className="online-indicator"></div>
               </div>
               <div className="chatbot-info">
@@ -122,11 +348,11 @@ export const Chatbot = () => {
             {messages.length === 0 && (
               <div className="welcome-message">
                 <div className="welcome-avatar">
-                  <div className="welcome-img">G</div>
+                  <div className="welcome-img">D</div>
                 </div>
                 <div className="welcome-text">
-                  <h3>Hi ask me about anythin</h3>
-                  <p>👋 Hi there! How can I help you today?</p>
+                  <h3>Hi, I'm David's Assistant</h3>
+                  <p>👋 Hello! I can tell you about David's skills, experience, projects, and qualifications. How can I help you today?</p>
                 </div>
               </div>
             )}
@@ -135,7 +361,7 @@ export const Chatbot = () => {
               <div key={index} className={`message ${msg.type}`}>
                 {msg.type === "bot" && (
                   <div className="message-avatar">
-                    <div className="avatar-img">G</div>
+                    <div className="avatar-img">D</div>
                   </div>
                 )}
                 <div className="message-content">
@@ -155,7 +381,7 @@ export const Chatbot = () => {
             {isLoading && (
               <div className="message bot">
                 <div className="message-avatar">
-                  <div className="avatar-img">G</div>
+                  <div className="avatar-img">D</div>
                 </div>
                 <div className="message-content">
                   <div className="message-bubble bot typing">
@@ -182,7 +408,7 @@ export const Chatbot = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyPress}
-                placeholder="Message Gemini AI..."
+                placeholder="Ask about David's experience, projects, or skills..."
                 rows="1"
               />
               <button className="emoji-button">
