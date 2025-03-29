@@ -3,7 +3,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { MessageSquare, Send, X, Paperclip, Smile } from "lucide-react";
 import "./Chatbot.css";
 
-const API_KEY = "AIzaSyBa7k2BCQg4d-30fPRgmB79yv8sYzDG2Sk";
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
 const genAI = new GoogleGenerativeAI(API_KEY);
 
