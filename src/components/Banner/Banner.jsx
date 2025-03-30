@@ -10,9 +10,9 @@ export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
-  const [delta, setDelta] = useState(50 - Math.random() * 100);
-  const [index, setIndex] = useState(1);
-  const toRotate = [ "Software Developer", "AI Enthusiast" ];
+  // Fixed initial delta value - more consistent and faster typing
+  const [delta, setDelta] = useState(200);
+  const toRotate = ["Software Developer", "AI Enthusiast"];
   const period = 2000;
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export const Banner = () => {
     }, delta);
 
     return () => { clearInterval(ticker) };
-  }, [text])
+  }, [text, delta]);
 
   const tick = () => {
     let i = loopNum % toRotate.length;
@@ -31,20 +31,22 @@ export const Banner = () => {
     setText(updatedText);
 
     if (isDeleting) {
-      setDelta(prevDelta => prevDelta / 2);
+      // Make deletion faster
+      setDelta(100);
+    } else {
+      // Make typing faster and more consistent
+      setDelta(200);
     }
 
     if (!isDeleting && updatedText === fullText) {
+      // Pause before starting to delete
       setIsDeleting(true);
-      setIndex(prevIndex => prevIndex - 1);
-      setDelta(period);
+      setDelta(period / 4);
     } else if (isDeleting && updatedText === '') {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
-      setIndex(1);
-      setDelta(500);
-    } else {
-      setIndex(prevIndex => prevIndex + 1);
+      // Reset to faster typing for the next word
+      setDelta(200);
     }
   }
 
@@ -52,7 +54,6 @@ export const Banner = () => {
   const download = () => {
     window.open("https://drive.google.com/drive/u/0/folders/1_T6X1m2Uq3cOP7ul9Os-JPdKabDEsqQp", "_blank");
   }
-
 
   return (
     <section className="banner" id="home">
@@ -74,7 +75,6 @@ export const Banner = () => {
           <Col xs={12} md={6} xl={5}>
             <TrackVisibility>
               {({ isVisible }) =>
-                // <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
                 <div className={isVisible ? "flex" : "flex"}>
                   <img src={headerImg} alt="Header Img"/>
                 </div>}
