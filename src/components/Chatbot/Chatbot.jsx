@@ -30,9 +30,52 @@ Projects:
 - Chat Application with Sentiment Analysis: MERN stack app with real-time messaging and AI emotion detection
 - GDG XParky Points Backend: Flask API with Google Cloud integration
 - Arduino Day PH 2025 Website: NextJS, TypeScript, Vercel
+- We Chat Application: MERN stack, Socket.io for real-time chat functionality
+- PUP Alumni Portal For Graduates (PUPGS): React, PHP Laravel, MySQL, Websocket
+- ElectrifAI Solutions PH Website: React TypeScript
+- ElectrifAI Solutions PH Mobile App: React Native, Supabase
+- Real-estate Website (DavidEstate): React, Express, MongoDB, JWT, Redux
+- Blog Website (Technoquatro): React, Firebase
+- E-commerce Website (Ecom): MySQL, Express, React, Node.js
+- Student Curicullar Activity Manager (SCAM): Tkinter, Flask, SQLAlchemy, Websocket
+- Email Spam Classifier: PyTorch, MLP, Flask API
+- California Housing Price Prediction EDA: Python, Pandas, NumPy, Matplotlib, Seaborn
+- Object Detection (OpenCV): OpenCV with existing model
+- Data Structure Algorithm Visualizer: React, Framer for animations
+- Data Structure Algorithm Visualizer (Mario Theme): React, Framer
+- Constellation Orb ESP32 Firebase: ESP32 Arduino IoT, Firebase Real-time Database
 
 Certifications: AWS Cloud Practitioner, Generative AI with LLMs (DeepLearning.AI), Python Programmer Bootcamp
+
+Availability: I'm always available for new opportunities and discussions.
 `;
+
+// Project repository links
+const PROJECT_LINKS = {
+  "we chat": "https://github.com/DavidBatoDev/chat-application-mongodb",
+  "chat application": "https://github.com/DavidBatoDev/chat-application-mongodb",
+  "pup alumni": "https://github.com/DavidBatoDev/pup_alumni_portal",
+  "pupgs": "https://github.com/DavidBatoDev/pup_alumni_portal",
+  "arduino day": "https://github.com/DavidBatoDev/arduino-ph-2025",
+  "alertech mobile": "https://github.com/DavidBatoDev/alertech-mobile-app",
+  "alertech web": "https://github.com/geraldsberongoy/Arduino-Hackathon-Web",
+  "electrifai website": "https://electrifai.tech/",
+  "gdg xparky": "https://github.com/DavidBatoDev/gdg-web-development-classroom-api",
+  "real-estate": "https://github.com/DavidBatoDev/real-estate-mongodb",
+  "davidestate": "https://github.com/DavidBatoDev/real-estate-mongodb",
+  "blog": "https://github.com/DavidBatoDev/technoquatro-firebase",
+  "technoquatro": "https://github.com/DavidBatoDev/technoquatro-firebase",
+  "e-commerce": "https://github.com/DavidBatoDev/ecommerce-mysql",
+  "ecom": "https://github.com/DavidBatoDev/ecommerce-mysql",
+  "scam": "https://github.com/DavidBatoDev/oop-scam-app",
+  "student curicullar": "https://github.com/DavidBatoDev/oop-scam-app",
+  "email spam": "https://github.com/DavidBatoDev/email_spam_classifier_pytorch",
+  "california housing": "https://github.com/DavidBatoDev/house-price-prediction-pytorch",
+  "object detection": "https://github.com/DavidBatoDev/object-detection-opencv",
+  "data structure": "https://github.com/DavidBatoDev/data-structure-algo-visualization",
+  "mario theme": "https://github.com/DavidBatoDev/data-structure-algo-mario-theme",
+  "constellation orb": "https://github.com/DavidBatoDev/orblink-esp32-firebase"
+};
 
 // Structured data for detailed information
 const DAVID_RESUME = {
@@ -156,10 +199,29 @@ const DAVID_RESUME = {
   ]
 };
 
+// Check if query is asking about a specific project to provide repository link
+const checkForProjectLink = (query) => {
+  query = query.toLowerCase();
+  
+  for (const [keyword, link] of Object.entries(PROJECT_LINKS)) {
+    if (query.includes(keyword)) {
+      return `Here's the link to that project: ${link}`;
+    }
+  }
+  
+  return null;
+};
+
 // Helper function to get additional details based on query
 const getAdditionalDetails = (query) => {
   query = query.toLowerCase();
   let details = "";
+  
+  // Check for project link first
+  const projectLink = checkForProjectLink(query);
+  if (projectLink) {
+    return projectLink;
+  }
   
   if (query.includes("project") || query.includes("alertech") || query.includes("arduino") || query.includes("fire") || query.includes("chat")) {
     const relevantProjects = DAVID_RESUME.projects.filter(p => 
@@ -201,6 +263,10 @@ const getAdditionalDetails = (query) => {
     details += `\n- Frameworks/Libraries: ${DAVID_RESUME.skills.frameworks.join(", ")}`;
     details += `\n- Databases: ${DAVID_RESUME.skills.databases.join(", ")}`;
     details += `\n- Other technologies: ${DAVID_RESUME.skills.other.join(", ")}`;
+  }
+  
+  if (query.includes("available") || query.includes("hire") || query.includes("contact") || query.includes("reach")) {
+    details += "\n\nDavid is always available for new opportunities and discussions. You can reach him at batobatodavid20@gmail.com or (+63) 9944345742.";
   }
   
   return details;
@@ -250,49 +316,66 @@ export const Chatbot = () => {
     }
 
     try {
-      // Get additional details relevant to the query
-      const additionalDetails = getAdditionalDetails(input);
+      // Check for specific project link first
+      const projectLink = checkForProjectLink(input);
       
-      // Create the context for this interaction
-      const contextMessage = `You are David's assistant. Answer as if you're representing David based on his resume information. ${DAVID_RESUME_INFO}${additionalDetails}`;
-      
-      // Update conversation history for context
-      const updatedHistory = [
-        ...conversationHistory,
-        { role: "user", parts: [{ text: input }] }
-      ];
-      setConversationHistory(updatedHistory);
-      
-      // Initialize the model
-      const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-      
-      // Generate content with proper formatting for Gemini API
-      const result = await model.generateContent({
-        contents: [{ role: "user", parts: [{ text: contextMessage + "\n\nUser question: " + input }] }]
-      });
-      
-      const response = await result.response;
-      const text = response.text();
+      if (projectLink) {
+        // If it's a project query, respond with the link
+        setMessages(prev => [
+          ...prev, 
+          { 
+            type: "bot", 
+            text: projectLink, 
+            time: formatTime() 
+          }
+        ]);
+      } else {
+        // Get additional details relevant to the query
+        const additionalDetails = getAdditionalDetails(input);
+        
+        // Create the context for this interaction
+        const contextMessage = `You are David's assistant. Answer as if you're representing David based on his resume information. 
+        If you don't know the answer, tell them to contact David directly at batobatodavid20@gmail.com.
+        If they ask about availability, emphasize that David is always free and provide his contact information.
+        ${DAVID_RESUME_INFO}${additionalDetails}`;
+        
+        // Update conversation history for context
+        const updatedHistory = [
+          ...conversationHistory,
+          { role: "user", parts: [{ text: input }] }
+        ];
+        setConversationHistory(updatedHistory);
+        
+        // Initialize the model
+        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+        
+        // Generate content with proper formatting for Gemini API
+        const result = await model.generateContent({
+          contents: [{ role: "user", parts: [{ text: contextMessage + "\n\nUser question: " + input }] }]
+        });
+        
+        const response = await result.response;
+        const text = response.text();
 
-      // Update messages state with the response
-      setMessages(prev => [
-        ...prev, 
-        { type: "bot", text, time: formatTime() }
-      ]);
-      
-      // Update conversation history with the response
-      setConversationHistory([
-        ...updatedHistory,
-        { role: "model", parts: [{ text }] }
-      ]);
-      
+        // Update messages state with the response
+        setMessages(prev => [
+          ...prev, 
+          { type: "bot", text, time: formatTime() }
+        ]);
+        
+        // Update conversation history with the response
+        setConversationHistory([
+          ...updatedHistory,
+          { role: "model", parts: [{ text }] }
+        ]);
+      }
     } catch (error) {
       console.error("Error:", error);
       setMessages(prev => [
         ...prev, 
         { 
           type: "bot", 
-          text: "Sorry, I encountered an error. Please try again.", 
+          text: "Sorry, I encountered an error. Please contact David directly at batobatodavid20@gmail.com.", 
           time: formatTime() 
         }
       ]);
