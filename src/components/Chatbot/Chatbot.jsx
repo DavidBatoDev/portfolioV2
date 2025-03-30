@@ -1,7 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback  } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { MessageSquare, Send, X, Paperclip, Smile } from "lucide-react";
 import "./Chatbot.css";
+
 
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
@@ -273,6 +274,11 @@ const getAdditionalDetails = (query) => {
 };
 
 export const Chatbot = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+  
+
+
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -297,6 +303,34 @@ export const Chatbot = () => {
         Math.min(textareaRef.current.scrollHeight, 100) + "px";
     }
   }, [input]);
+
+    // Function to check if device is mobile
+    const checkMobile = useCallback(() => {
+      setIsMobile(window.innerWidth <= 768);
+      setViewportHeight(window.innerHeight);
+    }, []);
+  
+     // Add this useEffect to handle screen resize
+     useEffect(() => {
+      // Initial check
+      checkMobile();
+      
+      // Add event listener
+      window.addEventListener('resize', checkMobile);
+      
+      // Clean up
+      return () => window.removeEventListener('resize', checkMobile);
+    }, [checkMobile]);
+  
+    // Improve the auto-resize function for textarea
+    useEffect(() => {
+      if (textareaRef.current) {
+        textareaRef.current.style.height = "auto";
+        const maxHeight = isMobile ? 80 : 100; // Lower max height on mobile
+        textareaRef.current.style.height = 
+          Math.min(textareaRef.current.scrollHeight, maxHeight) + "px";
+      }
+    }, [input, isMobile]);
 
   const formatTime = () => {
     const now = new Date();
@@ -397,6 +431,32 @@ export const Chatbot = () => {
     ));
   };
 
+    // Function to handle fullscreen in mobile
+    const handleChatToggle = () => {
+      setIsOpen(true);
+      
+      // For mobile devices, make sure keyboard doesn't push content up
+      if (isMobile) {
+        document.body.style.overflow = 'hidden';
+        
+        // For iOS, ensure viewport adjusts properly
+        if (/iPhone|iPad|iPod/.test(navigator.platform)) {
+          document.documentElement.style.height = '100%';
+          document.body.style.height = '100%';
+        }
+      }
+    };
+  
+    // Function to handle closing chat on mobile
+    const handleCloseChat = () => {
+      setIsOpen(false);
+      
+      // Reset body styles
+      document.body.style.overflow = '';
+      document.documentElement.style.height = '';
+      document.body.style.height = '';
+    };
+
   return (
     <>
       {!isOpen && (
@@ -410,7 +470,10 @@ export const Chatbot = () => {
       )}
 
       {isOpen && (
-        <div className="chatbot-container">
+        <div 
+        className={`chatbot-container ${isMobile ? 'mobile-view' : ''}`}
+        style={isMobile ? {height: `${viewportHeight}px`} : {}}
+        >
           <div className="chatbot-header">
             <div className="chatbot-header-info">
               <div className="chatbot-avatar">
@@ -422,9 +485,9 @@ export const Chatbot = () => {
                 <span className="status">Online</span>
               </div>
             </div>
-            <button className="close-button" onClick={() => setIsOpen(false)}>
-              <X size={18} />
-            </button>
+            <button className="close-button" onClick={handleCloseChat}>
+            <X size={18} />
+          </button>
           </div>
 
           <div className="chatbot-messages">
