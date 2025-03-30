@@ -481,7 +481,7 @@ export const Chatbot = () => {
                 <div className="online-indicator"></div>
               </div>
               <div className="chatbot-info">
-                <h3>David</h3>
+                <h3>David AI Assistant</h3>
                 <span className="status">Online</span>
               </div>
             </div>
