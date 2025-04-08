@@ -29,7 +29,7 @@ export const Projects = () => {
       title: "We Chat Application AI (Chat Application)",
       description: "MERN stack app with real-time chat and sentiment analysis AI for chat messages.",
       imgUrl: projImg1,
-      link: "https://github.com/DavidBatoDev/chat-application-mongodb. ",
+      link: "https://github.com/DavidBatoDev/chat-app-sentimentAI",
     },
     {
       title: "PUP Alumni Portal For Graduates (PUPGS)",
