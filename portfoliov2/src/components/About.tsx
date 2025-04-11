@@ -35,17 +35,17 @@ const About = () => {
               </pre>
             </div>
             
-            <p className="py-4">
+            <p className="py-1">
               I'm a motivated and self-taught developer with 2 years of experience in software development,
               currently expanding my horizons in AI Engineering and Cloud Technologies and Data Engineering.
             </p>
             
-            <p className="py-2">
+            <p className="py-1">
                 As the Software Development Co-Lead for Google Developer Students Club - PUP,
                 I'm dedicated to fostering tech communities and sharing knowledge.
             </p>
             
-            <p className="py-2">
+            <p className="py-1">
               When I'm not coding or studying, you can find me exploring new technologies, contributing to open-source projects, and continuously expanding my technical skills to stay at the forefront of innovation.
             </p>
             
