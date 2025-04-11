@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Github, ExternalLink } from "lucide-react";
@@ -65,14 +65,30 @@ const projects = [
 
 const ProjectsSection = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const projectsPerPage = window.innerWidth >= 1280 ? 6 : 4; // Display 6 on large screens, 4 on smaller
+  const [projectsPerPage, setProjectsPerPage] = useState(4);
+
   const totalPages = Math.ceil(projects.length / projectsPerPage);
   
   const currentProjects = projects.slice(
-    currentPage * projectsPerPage,
-    (currentPage + 1) * projectsPerPage
-  );
-  
+      currentPage * projectsPerPage,
+      (currentPage + 1) * projectsPerPage
+    );
+    
+    useEffect(() => {
+      if (typeof window !== "undefined") {
+        const handleResize = () => {
+          setProjectsPerPage(window.innerWidth >= 1280 ? 6 : 4);
+        };
+    
+        handleResize(); // Set initial value
+        window.addEventListener("resize", handleResize);
+    
+        return () => {
+          window.removeEventListener("resize", handleResize);
+        };
+      }
+    }, []);
+    
   const nextPage = () => {
     setCurrentPage((prev) => (prev + 1) % totalPages);
   };
