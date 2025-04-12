@@ -36,12 +36,12 @@ const About = () => {
             </div>
             
             <p className="py-1">
-              I'm a motivated and self-taught developer with 2 years of experience in software development,
+              I&apos;m a motivated and self-taught developer with 2 years of experience in software development,
               currently expanding my horizons in AI Engineering and Cloud Technologies and Data Engineering.
             </p>
 
             <p className="py-1">
-              Currently working in a startup company as a Software Developer at ElectriFAI PH Solutions Tech, where I am responsible for building a comprehensive web and mobile application that enables real-time monitoring and analysis of household electricity consumption. My work involves close collaboration with the hardware and data teams to ensure seamless integration of software with IoT devices, delivering accurate energy insights and a smooth user experience. I also contribute to the design, functionality, and continuous improvement of the platform to better serve users' needs.
+              Currently working in a startup company as a Software Developer at ElectriFAI PH Solutions Tech, where I am responsible for building a comprehensive web and mobile application that enables real-time monitoring and analysis of household electricity consumption. My work involves close collaboration with the hardware and data teams to ensure seamless integration of software with IoT devices, delivering accurate energy insights and a smooth user experience. I also contribute to the design, functionality, and continuous improvement of the platform to better serve users&apos; needs.
             </p>
             
             <p className="py-1">
@@ -49,7 +49,7 @@ const About = () => {
             </p>
             
             <p className="py-1">
-              When I'm not coding or studying, you can find me exploring new technologies, contributing to open-source projects, and continuously expanding my technical skills to stay at the forefront of innovation.
+              When I&apos;m not coding or studying, you can find me exploring new technologies, contributing to open-source projects, and continuously expanding my technical skills to stay at the forefront of innovation.
             </p>
             
             <div className="flex items-center mt-6">
