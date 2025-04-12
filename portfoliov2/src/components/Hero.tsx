@@ -40,14 +40,14 @@ const Hero = () => {
             <a href="#projects" className="btn btn-primary">
               View Projects
             </a>
-            <a href="#contact" className="btn btn-secondary">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=batobatodavid20@gmail.com" className="btn btn-secondary">
               Contact Me
             </a>
           </div>
         </div>
         
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <a href="#about" className="text-tech-teal hover:text-tech-teal/80">
+          <a href="#about" target='_blank' className="text-tech-teal hover:text-tech-teal/80">
             <ArrowDownCircle size={32} />
           </a>
         </div>
