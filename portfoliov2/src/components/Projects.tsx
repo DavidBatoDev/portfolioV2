@@ -25,137 +25,156 @@ import TechnoQuatro from "../assets/project-images/TechnoQuatro.png";
 import weChat from "../assets/project-images/weChat.png";
 
 const projects = [
+  {
+    title: "PUP Alumni Portal For Graduates (PUPGS)",
+    description: "An alumni portal built with React and Laravel that handles graduate Profiles Data, Events, Discussions, Surveys, and real-time alerts via WebSockets.",
+    imgUrl: PUPPortal,
+    githubLink: "https://github.com/DavidBatoDev/pup_alumni_portal",
+    deployedLink: "https://pupgs.com/",
+    technologies: ["React", "PHP", "Laravel", "MySQL", "WebSockets", "GoDaddy"]
+  },
     {
-        title: "ElectrifAI Solutions PH Website",
-        description: "Corporate site for ElectrifAI showcasing AI-powered electricity solutions. Built with React, TypeScript, and responsive design for all devices.",
+        title: "Arduino Day PH 2025 Website",
+        description: "Official Arduino Day PH 2025 site built with NextJS and TypeScript. Features event registration, dynamic program flow, and smooth animations",
+        imgUrl: ArduinoDay,
+        githubLink: "https://github.com/DavidBatoDev/arduino-ph-2025",
+        deployedLink: "https://www.arduinodayphilippines.cc/",
+        technologies: ["NextJS", "TypeScript", "TailwindCSS", "ShadCN"]
+    },
+    {
+      title: "IskoChatAI",
+      description: "A scholarship Filipino Chatbot leveraging Retrieval-Augmented Generation (RAG) using Google's Custom Search API. Built with NextJS and Gemini API to deliver real-time, accurate answers based on live web content.",
+      imgUrl: IskoChat,
+      githubLink: "https://github.com/DavidBatoDev/iskochatai",
+      deployedLink: "https://scholarship-helper.vercel.app/",
+      technologies: ["NextJS", "TypeScript", "Gemini API", "TailwindCSS"]
+    },
+    {
+      title: "ElectrifAI Solutions PH Website",
+      description: "Corporate site for ElectrifAI showcasing AI-powered electricity solutions. Built with React, TypeScript, and responsive design for all devices.",
         imgUrl: ElectrifAIWeb,
-        link: "https://electrifai.tech/",
+        githubLink: "",
+        deployedLink: "https://electrifai.tech/",
         technologies: ["React", "TypeScript", "Responsive Design"]
     },
     {
       title: "ElectrifAI Solutions PH Mobile App",
       description: "Mobile app for tracking electricity usage, built with React Native and Supabase. Features real-time sync and user-friendly analytics dashboard.",
       imgUrl: ElectriFAIApp,
-      link: "",
+      githubLink: "",
+      deployedLink: "",
       technologies: ["React Native", "Supabase", "Electricity Consumption Management", "Groq API", "ESP32"]
-    },
-    {
-        title: "PUP Alumni Portal For Graduates (PUPGS)",
-        description: "An alumni portal built with React and Laravel that handles graduate Profiles Data, Events, Discussions, Surveys, and real-time alerts via WebSockets.",
-        imgUrl: PUPPortal,
-        link: "https://github.com/DavidBatoDev/pup_alumni_portal",
-        technologies: ["React", "PHP", "Laravel", "MySQL", "WebSockets", "GoDaddy"]
-    },
-    {
-        title: "Arduino Day PH 2025 Website",
-        description: "Official Arduino Day PH 2025 site built with NextJS and TypeScript. Features event registration, dynamic program flow, and smooth animations",
-        imgUrl: ArduinoDay,
-      link: "https://github.com/DavidBatoDev/arduino-ph-2025",
-      technologies: ["NextJS", "TypeScript", "TailwindCSS", "ShadCN"]
-    },
-    {
-      title: "IskoChatAI",
-      description: "A scholarship Filipino Chatbot leveraging Retrieval-Augmented Generation (RAG) using Google's Custom Search API. Built with NextJS and Gemini API to deliver real-time, accurate answers based on live web content.",
-      imgUrl: IskoChat,
-      link: "https://github.com/DavidBatoDev/iskochatai",
-      technologies: ["NextJS", "TypeScript", "Gemini API", "TailwindCSS"]
     },
     {
       title: "Alertech Smart Fire Alert System (Mobile App)",
       description: "React Native app for real-time fire alerts using Firebase and ESP32 integration. Push notifications enabled via FCM (Firebase) for instant emergency updates in both foreground and background.",
       imgUrl: AlertechMobile,
-      link: "https://github.com/DavidBatoDev/alertech-mobile-app",
+      githubLink: "https://github.com/DavidBatoDev/alertech-mobile-app",
+      deployedLink: "",
       technologies: ["React Native", "Firebase", "FCM", "ESP32", "IoT"]
     },
     {
       title: "Alertech Smart Fire Alert System (Website)",
       description: "Web dashboard for Fire Authority for live fire sensor monitoring and IoT device management. Built with React and Firebase for real-time data sync and remote configuration.",
       imgUrl: AlertechWeb,
-      link: "https://github.com/geraldsberongoy/Arduino-Hackathon-Web",
+      githubLink: "https://github.com/geraldsberongoy/Arduino-Hackathon-Web",
+      deployedLink: "https://alertech-firestation-dashboard.vercel.app/",
       technologies: ["React", "Firebase", "Realtime Database", "IoT Integration"]
+    },
+    {
+      title: "GDGXSparky Points Tracker",
+      description: "A webserver that automates Students participations of workshops in Google Developer Clubs - PUP Web Department.",
+      imgUrl: GDGXSparky,
+      githubLink: "",
+      deployedLink: "",
+      technologies: ["React", "Flask API", "Python", "Google Sheets", "Google Calssrom"]
     },
     {
       title: "We Chat Application AI (Chat Application)",
       description: "Real-time MERN chat app with integrated sentiment analysis to detect emotional tone. Includes user authentication and live messaging using Socket.io.",
       imgUrl: weChat,
-      link: "https://github.com/DavidBatoDev/chat-app-sentimentAI",
+      githubLink: "https://github.com/DavidBatoDev/chat-app-sentimentAI",
+      deployedLink: "https://chat-app-sentiment-ai.vercel.app/",
       technologies: ["React", "Node.js", "MongoDB", "Express", "Socket.io", "Sentiment Analysis AI", "Firebase Storage"]
     },
     {
       title: "Astral Orbs Visualizer",
       description: "Two LED Orbs that lights up in sync even when separated by distance. Built with ESP32 and Firebase for real-time data sync and control.",
       imgUrl: AstralOrbs,
-      link: "",
+      githubLink: "",
+      deployedLink: "",
       technologies: ["C++", "ESP32", "FirebaseClient", "IoT"]
     },
     {
       title: "California EDA",
       description: "An exploratory data analysis project focusing on California's housing market. It utilizes Python libraries for data manipulation and visualization, providing insights into trends and patterns of the price.",
       imgUrl: CaliforniaEDA,
-      link: "",
+      githubLink: "",
+      deployedLink: "",
       technologies: ["Python", "Pytorch", "Matplotlib", "Pandas"]
-    },
-    {
-      title: "David's Estate",
-      description: "A real estate portal showcasing property listings with advanced search and filtering. This project emphasizes a clean UI and robust database integration.",
-      imgUrl: DavidsEstate,
-      link: "",
-      technologies: ["React", "Node.js", "MongoDB", "Express"]
-    },
-    {
-      title: "Data Structures & Algorithms (DSA) Hub",
-      description: "An educational platform focusing on data structures and algorithm Visualizer. Built using React D3.js for interactive visualizations, enhancing learning through engaging graphics.",
-      imgUrl: DSA,
-      link: "",
-      technologies: ["React", "Educational Tech", "Algorithms"]
     },
     {
       title: "DSA Mario Theme",
       description: "A gamified Data Structure Algorithm Visualizer in Mario Theme using React and D3.js. It provides an interactive way to learn algorithms through a fun and engaging interface.",
       imgUrl: DSAMario,
-      link: "",
+      githubLink: "https://github.com/DavidBatoDev/data-structure-algo-mario-theme",
+      deployedLink: "https://dsa-angel-zkff.vercel.app/",
       technologies: ["React", "Game Development", "Algorithms"]
+    },
+    {
+      title: "Data Structures & Algorithms Visualizer",
+      description: "An educational platform focusing on data structures and algorithm Visualizer. Built using React D3.js for interactive visualizations, enhancing learning through engaging graphics.",
+      imgUrl: DSA,
+      githubLink: "https://github.com/DavidBatoDev/data-structure-algo-visualization",
+      deployedLink: "https://data-structure-algo-visualization.vercel.app/",
+      technologies: ["React", "Educational Tech", "Algorithms"]
+    },
+    {
+      title: "David's Estate",
+      description: "A real estate portal showcasing property listings with advanced search and filtering. This project emphasizes a clean UI and robust database integration.",
+      imgUrl: DavidsEstate,
+      githubLink: "https://github.com/DavidBatoDev/real-estate-mongodb",
+      deployedLink: "",
+      technologies: ["React", "Node.js", "MongoDB", "Express"]
     },
     {
       title: "Ecommerce Platform",
       description: "A full-featured eCommerce platform with product listings, shopping cart, and secure checkout process. It features dynamic product displays and user authentication.",
       imgUrl: Ecommerce,
-      link: "",
+      githubLink: "https://github.com/DavidBatoDev/ecommerce-mysql",
+      deployedLink: "",
       technologies: ["React", "Node.js", "MySql", "Express"]
     },
     {
       title: "Email Spam Classifier",
       description: "A machine learning project that classifies emails as spam or not using natural language processing techniques and a robust training dataset.",
       imgUrl: emailSpamClassifier,
-      link: "",
+      githubLink: "https://github.com/DavidBatoDev/email_spam_classifier_pytorch",
+      deployedLink: "",
       technologies: ["Python", "Pytorch", "NLP"]
-    },
-    {
-      title: "GDGXSparky Points Tracker",
-      description: "A webserver that automates Students participations of workshops in Google Developer Clubs - PUP Web Department.",
-      imgUrl: GDGXSparky,
-      link: "",
-      technologies: ["React", "Flask API", "Python", "Google Sheets", "Google Calssrom"]
     },
     {
       title: "Object Detection with CV",
       description: "A computer vision project that implements object detection using state-of-the-art algorithms. Ideal for monitoring and security applications.",
       imgUrl: ObjectDetectionCV,
-      link: "",
-      technologies: ["Python", "OpenCV", "Pre-trained Models"]
+      githubLink: "https://github.com/DavidBatoDev/object-detection-opencv/",
+      deployedLink: "",
+      technologies: ["Python", "OpenCV", "COCO", "MobileNet V3"]
     },
     {
       title: "Student Curricular Activity Manager",
       description: "All-in-one desktop productivity app featuring real-time collaborative note sharing via Socket.io, flashcards, and task tracking. Built using Tkinter for the interface, Flask for backend, and SQLite for data storage—developed to fulfill an OOP project requirement.",
       imgUrl: ScamApp,
-      link: "",
+      githubLink: "https://github.com/DavidBatoDev/oop-scam-app/tree/main",
+      deployedLink: "",
       technologies: ["Tkinter", "Flask", "SQLite", "Socket.io"]
     },
     {
       title: "Techno Quatro",
       description: "A Information webiste project offering innovative software solutions. It features a sleek design and modern web technologies to streamline business operations.",
       imgUrl: TechnoQuatro,
-      link: "",
+      githubLink: "https://github.com/DavidBatoDev/technoquatro-firebase",
+      deployedLink: "",
       technologies: ["React", "Tailwind", "Materials UI", "Firebase"]
     }
   ];
@@ -201,22 +220,24 @@ const ProjectsSection = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-                  {project.link && (
+                  {project.githubLink && (
                     <a
-                      href={project.link}
+                      href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-primary text-white p-2 rounded-full hover:bg-primary/80 transition-colors transform hover:scale-110"
+                      title="GitHub Repository"
                     >
                       <Github className="h-5 w-5" />
                     </a>
                   )}
-                  {project.link && project.link.startsWith("http") && !project.link.includes("github.com") && (
+                  {project.deployedLink && (
                     <a
-                      href={project.link}
+                      href={project.deployedLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-primary text-white p-2 rounded-full hover:bg-primary/80 transition-colors transform hover:scale-110"
+                      title="Live Demo"
                     >
                       <ExternalLink className="h-5 w-5" />
                     </a>
