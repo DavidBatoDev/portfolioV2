@@ -38,12 +38,12 @@ const Header = () => {
             <span className="nav-link-number">03.</span>Projects
           </a>
           <a 
-            href="/resume.pdf" 
+            href="/cv.pdf" 
             className="btn btn-primary"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Resume
+            See CV
           </a>
         </nav>
         
