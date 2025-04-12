@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <header 
       className={`fixed w-full z-50 py-4 transition-all duration-300 ${
-        isScrolled ? 'bg-background/90 backdrop-blur shadow-md py-3' : 'bg-transparent py-5'
+        isScrolled ? 'backdrop-blur shadow-md py-3' : 'bg-transparent py-5'
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
@@ -59,7 +59,7 @@ const Header = () => {
       {/* Mobile Menu */}
       <div 
         className={`fixed inset-0 bg-tech-navy/95 flex flex-col justify-center items-center z-40 transition-all duration-300 ${
-          isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          isMenuOpen ? 'opacity-100 pointer-events-auto py-40' : 'opacity-0 pointer-events-none'
         }`}
       >
         <nav className="flex flex-col items-center space-y-8 text-center">
@@ -83,13 +83,6 @@ const Header = () => {
             onClick={() => setIsMenuOpen(false)}
           >
             <span className="nav-link-number block">03.</span>Skills
-          </a>
-          <a 
-            href="#contact" 
-            className="nav-link text-xl"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            <span className="nav-link-number block">04.</span>Contact
           </a>
           <a 
             href="/resume.pdf" 
