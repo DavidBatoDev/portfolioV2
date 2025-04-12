@@ -118,3 +118,16 @@
     @apply text-tech-light hover:text-tech-teal transition-colors duration-300;
   }
 }
+
+.remove-scollbar {
+  overflow: auto; /* or overflow-y: scroll; */
+  
+  /* For Firefox */
+  scrollbar-width: none; 
+  -ms-overflow-style: none; /* For Internet Explorer 10+ */
+}
+
+/* For Chrome, Safari, and Opera */
+.remove-scollbar::-webkit-scrollbar {
+  display: none;
+}
