@@ -540,7 +540,7 @@ export const Chatbot = () => {
 
       {isOpen && (
         <div 
-          className={`fixed bottom-5 right-5 ${isMobile ? 'w-full h-full bottom-0 right-0 left-0 rounded-none' : 'w-[350px] h-[520px] rounded-2xl'} bg-[#1e1e3f] shadow-xl flex flex-col overflow-hidden font-sans z-[14444000] border border-[#342b55] animate-[slide-up_0.3s_ease-out]`}
+          className={`fixed bottom-0 lg:bottom-5 right-5 ${isMobile ? 'w-full h-full bottom-0 right-0 left-0 rounded-none' : 'w-[350px] h-[520px] rounded-2xl'} bg-[#1e1e3f] shadow-xl flex flex-col overflow-hidden font-sans z-[14444000] border border-[#342b55] animate-[slide-up_0.3s_ease-out]`}
           style={isMobile ? {height: `${viewportHeight}px`} : {}}
         >
           <div className="px-4 py-3 bg-tech-navy border-b border-tech-light flex justify-between items-center">
