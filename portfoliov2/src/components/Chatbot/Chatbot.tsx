@@ -549,7 +549,7 @@ export const Chatbot = () => {
             ol: ({ node, ...props }) => <ol {...props} className="list-decimal pl-5 my-2" />,
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             li: ({ node, ...props }) => <li {...props} className="mb-1" />,
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
             code: ({ inline, className, children, ...props }: any) => (
               inline ? 
                 <code {...props} className="px-1 py-0.5 bg-tech-navy font-mono text-sm rounded">{children}</code> :
