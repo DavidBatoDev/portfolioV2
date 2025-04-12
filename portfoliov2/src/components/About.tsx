@@ -20,17 +20,17 @@ const About = () => {
             <div className="code-block overflow-x-scroll remove-scollbar ">
               <pre>
                 <span className="text-purple-400">const</span> <span className="text-blue-400">aboutDavid</span> <span className="text-white">=</span> <span className="text-yellow-300">{"{"}</span>
-                {"\n"}  <span className="text-green-400">"name"</span><span className="text-white">:</span> <span className="text-orange-300">"David Enriquez Bato-bato"</span><span className="text-white">,</span>
-                {"\n"}  <span className="text-green-400">"currentRole"</span><span className="text-white">:</span> <span className="text-orange-300">"Software Developer"</span><span className="text-white">,</span>
-                {"\n"}  <span className="text-green-400">"education"</span><span className="text-white">:</span> <span className="text-orange-300">"Computer Engineering, PUP Sta. Mesa"</span><span className="text-white">,</span>
-                {"\n"}  <span className="text-green-400">"interests"</span><span className="text-white">:</span> <span className="text-yellow-300">[</span>
-                {"\n"}    <span className="text-orange-300">"Web/App Development"</span><span className="text-white">,</span>
-                {"\n"}    <span className="text-orange-300">"AI Engineering"</span><span className="text-white">,</span>
-                {"\n"}    <span className="text-orange-300">"Data Engineering and Devops"</span>
-                {"\n"}    <span className="text-orange-300">"Cloud Technologies"</span><span className="text-white">,</span>
-                {"\n"}    <span className="text-orange-300">"Internet of Things"</span><span className="text-white">,</span>
+                {"\n"}  <span className="text-green-400">&quot;name&quot;</span><span className="text-white">:</span> <span className="text-orange-300">&quot;David Enriquez Bato-bato&quot;</span><span className="text-white">,</span>
+                {"\n"}  <span className="text-green-400">&quot;currentRole&quot;</span><span className="text-white">:</span> <span className="text-orange-300">&quot;Software Developer&quot;</span><span className="text-white">,</span>
+                {"\n"}  <span className="text-green-400">&quot;education&quot;</span><span className="text-white">:</span> <span className="text-orange-300">&quot;Computer Engineering, PUP Sta. Mesa&quot;</span><span className="text-white">,</span>
+                {"\n"}  <span className="text-green-400">&quot;interests&quot;</span><span className="text-white">:</span> <span className="text-yellow-300">[</span>
+                {"\n"}    <span className="text-orange-300">&quot;Web/App Development&quot;</span><span className="text-white">,</span>
+                {"\n"}    <span className="text-orange-300">&quot;AI Engineering&quot;</span><span className="text-white">,</span>
+                {"\n"}    <span className="text-orange-300">&quot;Data Engineering and Devops&quot;</span>
+                {"\n"}    <span className="text-orange-300">&quot;Cloud Technologies&quot;</span><span className="text-white">,</span>
+                {"\n"}    <span className="text-orange-300">&quot;Internet of Things&quot;</span><span className="text-white">,</span>
                 {"\n"}  <span className="text-yellow-300">]</span><span className="text-white">,</span>
-                {"\n"}  <span className="text-green-400">"bio"</span><span className="text-white">:</span> <span className="text-orange-300">"Upskill, upskill until it pays off!"</span>
+                {"\n"}  <span className="text-green-400">&quot;bio&quot;</span><span className="text-white">:</span> <span className="text-orange-300">&quot;Upskill, upskill until it pays off!&quot;</span>
                 {"\n"}<span className="text-yellow-300">{"}"}</span><span className="text-white">;</span>
               </pre>
             </div>
@@ -45,7 +45,7 @@ const About = () => {
             </p>
             
             <p className="py-1">
-              As the Software Development Co-Lead at Google Developer Students Club - PUP, I lead initiatives that foster a strong developer community, mentor aspiring student developers, and drive collaborative projects that create real-world impact. I&apos;m passionate about empowering others through knowledge-sharing, leadership, and hands-on experience in software development To find out more on how I teach you may visit "https://gdg-exp-website.vercel.app/" under recordings section.
+              As the Software Development Co-Lead at Google Developer Students Club - PUP, I lead initiatives that foster a strong developer community, mentor aspiring student developers, and drive collaborative projects that create real-world impact. I&apos;m passionate about empowering others through knowledge-sharing, leadership, and hands-on experience in software development To find out more on how I teach you may visit &quot;https://gdg-exp-website.vercel.app/&quot; under recordings section.
             </p>
             
             <p className="py-1">
