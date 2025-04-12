@@ -150,6 +150,18 @@ const groupedSkills = {
       alt: "Hugging Face Logo",
       label: "Hugging Face"
     },
+  ],
+  "Version Control": [
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
+      alt: "Git Logo",
+      label: "Git"
+    },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg",
+      alt: "GitHub Logo",
+      label: "GitHub"
+    },
   ]
 };
 
