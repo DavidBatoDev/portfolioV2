@@ -39,10 +39,13 @@ const About = () => {
               I'm a motivated and self-taught developer with 2 years of experience in software development,
               currently expanding my horizons in AI Engineering and Cloud Technologies and Data Engineering.
             </p>
+
+            <p className="py-1">
+              Currently working in a startup company as a Software Developer at ElectriFAI PH Solutions Tech, where I am responsible for building a comprehensive web and mobile application that enables real-time monitoring and analysis of household electricity consumption. My work involves close collaboration with the hardware and data teams to ensure seamless integration of software with IoT devices, delivering accurate energy insights and a smooth user experience. I also contribute to the design, functionality, and continuous improvement of the platform to better serve users' needs.
+            </p>
             
             <p className="py-1">
-                As the Software Development Co-Lead for Google Developer Students Club - PUP,
-                I'm dedicated to fostering tech communities and sharing knowledge.
+              As the Software Development Co-Lead at Google Developer Students Club - PUP, I lead initiatives that foster a strong developer community, mentor aspiring student developers, and drive collaborative projects that create real-world impact. I&apos;m passionate about empowering others through knowledge-sharing, leadership, and hands-on experience in software development To find out more on how I teach you may visit "https://gdg-exp-website.vercel.app/" under recordings section.
             </p>
             
             <p className="py-1">

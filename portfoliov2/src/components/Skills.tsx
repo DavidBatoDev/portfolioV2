@@ -169,7 +169,7 @@ const Skills = () => {
   return (
     <section id="skills" className="bg-secondary/50 dark:bg-secondary/20">
       <div className="container py-20 px-4 mx-auto">
-      <h2 className="section-title">My Projects</h2>
+      <h2 className="section-title">Techs</h2>
         
         <div className="space-y-10">
           {Object.entries(groupedSkills).map(([category, skills]) => (

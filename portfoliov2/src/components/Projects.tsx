@@ -85,8 +85,8 @@ const projects = [
       title: "GDGXSparky Points Tracker",
       description: "A webserver that automates Students participations of workshops in Google Developer Clubs - PUP Web Department.",
       imgUrl: GDGXSparky,
-      githubLink: "",
-      deployedLink: "",
+      githubLink: "https://github.com/DavidBatoDev/gdg-web-development-classroom-api",
+      deployedLink: "https://gdg-exp-website.vercel.app/",
       technologies: ["React", "Flask API", "Python", "Google Sheets", "Google Calssrom"]
     },
     {
@@ -98,10 +98,10 @@ const projects = [
       technologies: ["React", "Node.js", "MongoDB", "Express", "Socket.io", "Sentiment Analysis AI", "Firebase Storage"]
     },
     {
-      title: "Astral Orbs Visualizer",
+      title: "OrbLink For Couples",
       description: "Two LED Orbs that lights up in sync even when separated by distance. Built with ESP32 and Firebase for real-time data sync and control.",
       imgUrl: AstralOrbs,
-      githubLink: "",
+      githubLink: "https://github.com/DavidBatoDev/orblink-esp32-firebase",
       deployedLink: "",
       technologies: ["C++", "ESP32", "FirebaseClient", "IoT"]
     },
@@ -109,7 +109,7 @@ const projects = [
       title: "California EDA",
       description: "An exploratory data analysis project focusing on California's housing market. It utilizes Python libraries for data manipulation and visualization, providing insights into trends and patterns of the price.",
       imgUrl: CaliforniaEDA,
-      githubLink: "",
+      githubLink: "https://github.com/DavidBatoDev/house-price-prediction-pytorch",
       deployedLink: "",
       technologies: ["Python", "Pytorch", "Matplotlib", "Pandas"]
     },
