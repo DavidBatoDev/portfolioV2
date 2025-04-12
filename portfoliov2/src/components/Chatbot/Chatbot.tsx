@@ -1,4 +1,3 @@
-// Chatbot.tsx
 "use client"
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
@@ -340,7 +339,7 @@ interface ConversationHistoryItem {
 
 export const Chatbot = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
-  const [viewportHeight, setViewportHeight] = useState<number>(window.innerHeight);
+  const [viewportHeight, setViewportHeight] = useState<number>(typeof window !== "undefined" ? window.innerHeight : 0);
   
   const [input, setInput] = useState<string>("");
   const [messages, setMessages] = useState<Message[]>([]);
@@ -353,6 +352,22 @@ export const Chatbot = () => {
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth <= 768);
+    setViewportHeight(window.innerHeight);
+    
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setViewportHeight(window.innerHeight);
+    };
+  
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  
+
 
   useEffect(() => {
     scrollToBottom();
@@ -515,7 +530,7 @@ export const Chatbot = () => {
     <>
       {!isOpen && (
         <button 
-          className="fixed bottom-5 right-5 w-14 h-14 rounded-full bg-indigo-600 text-white flex items-center justify-center border-none cursor-pointer shadow-lg hover:scale-105 hover:bg-purple-700 transition-all duration-300 z-50"
+          className="fixed bottom-5 right-5 w-14 h-14 rounded-full bg-tech-slate text-tech-navy flex items-center justify-center border-none cursor-pointer shadow-lg hover:scale-105 hover:bg-tech-light transition-all duration-300 z-50"
           onClick={() => setIsOpen(true)}
           aria-label="Open chat"
         >
@@ -528,10 +543,10 @@ export const Chatbot = () => {
           className={`fixed bottom-5 right-5 ${isMobile ? 'w-full h-full bottom-0 right-0 left-0 rounded-none' : 'w-[350px] h-[520px] rounded-2xl'} bg-[#1e1e3f] shadow-xl flex flex-col overflow-hidden font-sans z-[14444000] border border-[#342b55] animate-[slide-up_0.3s_ease-out]`}
           style={isMobile ? {height: `${viewportHeight}px`} : {}}
         >
-          <div className="px-4 py-3 bg-[#241e42] border-b border-[#342b55] flex justify-between items-center">
+          <div className="px-4 py-3 bg-tech-navy border-b border-tech-light flex justify-between items-center">
             <div className="flex items-center gap-3">
               <div className="relative">
-                <div className="w-10 h-10 rounded-full bg-[#7559c0] text-white flex items-center justify-center font-semibold text-lg">
+                <div className="w-10 h-10 rounded-full bg-tech-teal text-tech-navy flex items-center justify-center font-semibold text-lg">
                   D
                 </div>
                 <div className="absolute w-3 h-3 bg-green-500 rounded-full border-2 border-[#1e1e3f] bottom-0 right-0"></div>
@@ -546,11 +561,11 @@ export const Chatbot = () => {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-4 bg-[#1e1e3f] scrollbar-thin scrollbar-thumb-[#342b55] scrollbar-track-transparent scrollbar-thumb-rounded">
+          <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-4 bg-tech-navy scrollbar-thin scrollbar-thumb-[#342b55] scrollbar-track-transparent scrollbar-thumb-rounded">
             {messages.length === 0 && (
-              <div className="flex items-start gap-3 bg-[#241e42] rounded-lg p-4 shadow max-w-[85%] mx-auto border border-[#342b55]">
+              <div className="flex items-start gap-3 bg-tech-navy rounded-lg p-4 shadow max-w-[85%] mx-auto border border-tech-light">
                 <div className="flex-shrink-0">
-                  <div className="w-10 h-10 rounded-full bg-[#7559c0] text-white flex items-center justify-center font-semibold text-lg">
+                  <div className="w-10 h-10 rounded-full bg-tech-teal text-tech-navy flex items-center justify-center font-semibold text-lg">
                     D
                   </div>
                 </div>
@@ -565,7 +580,7 @@ export const Chatbot = () => {
               <div key={index} className={`flex gap-2 max-w-[90%] ${msg.type === 'user' ? 'flex-row-reverse self-end' : 'self-start'}`}>
                 {msg.type === "bot" && (
                   <div className="w-8 h-8 flex-shrink-0">
-                    <div className="w-8 h-8 rounded-full bg-[#7559c0] text-white flex items-center justify-center font-semibold text-lg">
+                    <div className="w-8 h-8 rounded-full bg-tech-teal text-tech-navy flex items-center justify-center font-semibold text-lg">
                       D
                     </div>
                   </div>
@@ -573,8 +588,8 @@ export const Chatbot = () => {
                 <div className="flex flex-col gap-0.5">
                   <div className={`p-2 px-3 rounded-2xl min-w-[40px] max-w-full relative break-words ${
                     msg.type === 'user' 
-                      ? 'bg-[#7559c0] text-white rounded-tr-sm' 
-                      : 'bg-[#342b55] text-[#d1d1e6] rounded-tl-sm'
+                      ? 'bg-tech-light text-tech-navy rounded-tr-sm' 
+                      : 'bg-tech-slate text-tech-navy rounded-tl-sm'
                   }`}>
                     {formatMessageText(msg.text)}
                   </div>
@@ -591,16 +606,16 @@ export const Chatbot = () => {
             {isLoading && (
               <div className="flex gap-2 max-w-[90%] self-start">
                 <div className="w-8 h-8 flex-shrink-0">
-                  <div className="w-8 h-8 rounded-full bg-[#7559c0] text-white flex items-center justify-center font-semibold text-lg">
+                  <div className="w-8 h-8 rounded-full bg-tech-teal text-tech-navy flex items-center justify-center font-semibold text-lg">
                     D
                   </div>
                 </div>
                 <div className="flex flex-col gap-0.5">
-                  <div className="p-2 px-3 rounded-2xl min-w-[40px] bg-[#342b55] text-[#d1d1e6] rounded-tl-sm">
+                  <div className="p-2 px-3 rounded-2xl min-w-[40px] bg-tech-slate text-[#d1d1e6] rounded-tl-sm">
                     <div className="flex items-center py-2 gap-0.5">
-                      <span className="w-2 h-2 bg-[#a8a8c8] rounded-full inline-block opacity-40 animate-[pulse_1s_infinite]"></span>
-                      <span className="w-2 h-2 bg-[#a8a8c8] rounded-full inline-block opacity-40 animate-[pulse_1s_infinite_0.2s]"></span>
-                      <span className="w-2 h-2 bg-[#a8a8c8] rounded-full inline-block opacity-40 animate-[pulse_1s_infinite_0.4s]"></span>
+                      <span className="w-2 h-2 bg-tech-navy rounded-full inline-block opacity-40 animate-[pulse_1s_infinite]"></span>
+                      <span className="w-2 h-2 bg-tech-navy rounded-full inline-block opacity-40 animate-[pulse_1s_infinite_0.2s]"></span>
+                      <span className="w-2 h-2 bg-tech-navy rounded-full inline-block opacity-40 animate-[pulse_1s_infinite_0.4s]"></span>
                     </div>
                   </div>
                 </div>
@@ -610,11 +625,11 @@ export const Chatbot = () => {
             <div ref={messagesEndRef} />
           </div>
 
-          <div className="p-3 bg-[#241e42] border-t border-[#342b55] flex items-center gap-2.5">
-            <div className="flex items-center bg-[#1e1e3f] rounded-full px-3 py-2 flex-1 border border-[#342b55]">
-              <button className="bg-transparent border-none text-[#a8a8c8] p-0 flex items-center justify-center cursor-pointer hover:text-[#d1d1e6] transition-colors">
+          <div className="p-3 bg-tech-navy border-t border-tech-slate flex items-center gap-2.5">
+            <div className="flex items-center bg-tech-navy rounded-full px-3 py-2 flex-1 border border-[#342b55]">
+              {/* <button className="bg-transparent border-none text-[#a8a8c8] p-0 flex items-center justify-center cursor-pointer hover:text-[#d1d1e6] transition-colors">
                 <Paperclip size={18} />
-              </button>
+              </button> */}
               <textarea
                 ref={textareaRef}
                 value={input}
@@ -624,15 +639,15 @@ export const Chatbot = () => {
                 rows={1}
                 className="flex-1 border-none bg-transparent px-2 max-h-[100px] font-inherit text-sm outline-none resize-none m-0 text-[#d1d1e6] placeholder-[#a8a8c8] overflow-y-auto leading-5"
               />
-              <button className="bg-transparent border-none text-[#a8a8c8] p-0 flex items-center justify-center cursor-pointer hover:text-[#d1d1e6] transition-colors">
+              {/* <button className="bg-transparent border-none text-[#a8a8c8] p-0 flex items-center justify-center cursor-pointer hover:text-[#d1d1e6] transition-colors">
                 <Smile size={18} />
-              </button>
+              </button> */}
             </div>
             <button 
               className={`w-9 h-9 rounded-full flex items-center justify-center border-none cursor-pointer transition-colors flex-shrink-0 ${
                 isLoading || !input.trim() 
-                  ? 'bg-[#342b55] text-[#a8a8c8] cursor-not-allowed' 
-                  : 'bg-[#7559c0] text-white hover:bg-[#8a6ad2]'
+                  ? 'bg-gray-600 text-[#a8a8c8] cursor-not-allowed' 
+                  : 'bg-tech-teal text-tech-navy  hover:bg-[#8a6ad2]'
               }`}
               onClick={handleSendMessage}
               disabled={isLoading || !input.trim()}
