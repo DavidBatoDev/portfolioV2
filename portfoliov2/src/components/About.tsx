@@ -17,7 +17,7 @@ const About = () => {
               <span className="ml-2 text-xs font-mono opacity-50">about-me.json</span>
             </div>
             
-            <div className="code-block">
+            <div className="code-block overflow-x-scroll remove-scollbar ">
               <pre>
                 <span className="text-purple-400">const</span> <span className="text-blue-400">aboutDavid</span> <span className="text-white">=</span> <span className="text-yellow-300">{"{"}</span>
                 {"\n"}  <span className="text-green-400">"name"</span><span className="text-white">:</span> <span className="text-orange-300">"David Enriquez Bato-bato"</span><span className="text-white">,</span>
@@ -70,7 +70,7 @@ const About = () => {
                     />
                   </div>
                   <div className="absolute -bottom-2 -right-2 bg-tech-teal text-tech-navy font-mono text-xs px-2 py-1 rounded">
-                    Your Coder!
+                    Cheers!
                   </div>
                 </div>
               </div>
