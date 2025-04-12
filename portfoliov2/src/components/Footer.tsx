@@ -1,5 +1,5 @@
 
-import { Github, Linkedin, Twitter, Instagram, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, Instagram, ExternalLink } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex flex-col items-center">
           <div className="flex space-x-6 mb-8">
             <a 
-              href="https://github.com/johnjustin" 
+              href="https://github.com/DavidBatoDev" 
               target="_blank" 
               rel="noopener noreferrer"
               className="social-icon"
@@ -18,7 +18,7 @@ const Footer = () => {
               <Github size={20} />
             </a>
             <a 
-              href="https://linkedin.com/in/johnjustin" 
+              href="https://www.linkedin.com/in/david-bato-bato-1b6a8b288/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="social-icon"
@@ -26,15 +26,7 @@ const Footer = () => {
               <Linkedin size={20} />
             </a>
             <a 
-              href="https://twitter.com/johnjustin" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="social-icon"
-            >
-              <Twitter size={20} />
-            </a>
-            <a 
-              href="https://instagram.com/johnjustin" 
+              href="https://www.instagram.com/debb.__.id/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="social-icon"
