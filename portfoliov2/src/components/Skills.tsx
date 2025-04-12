@@ -75,6 +75,18 @@ const groupedSkills = {
       alt: "Python Logo",
       label: "Python"
     },
+    // postman
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg",
+      alt: "Postman Logo",
+      label: "Postman"
+    },
+    // insomnia
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/insomnia/insomnia-original.svg",
+      alt: "Insomnia Logo",
+      label: "Insomnia"
+    },
   ],
   "Database & Cloud": [
     {
@@ -92,6 +104,12 @@ const groupedSkills = {
       alt: "Firebase Logo",
       label: "Firebase"
     },
+    // Supabase
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+      alt: "Supabase Logo",
+      label: "Supabase"
+    },
     {
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
       alt: "Google Cloud Logo",
@@ -101,6 +119,12 @@ const groupedSkills = {
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
       alt: "Docker Logo",
       label: "Docker"
+    },
+    // Ubuntu
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg",
+      alt: "Ubuntu Logo",
+      label: "Ubuntu"
     },
   ],
   "AI & Data Science": [
@@ -113,6 +137,18 @@ const groupedSkills = {
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
       alt: "Pytorch Logo",
       label: "Pytorch"
+    },
+    // Gemini
+    {
+      src: "https://brandlogos.net/wp-content/uploads/2024/04/gemini-logo_brandlogos.net_fwajr-512x512.png",
+      alt: "Gemini Logo",
+      label: "Gemini"
+    },
+    // Hugging Face
+    {
+      src: "https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg",
+      alt: "Hugging Face Logo",
+      label: "Hugging Face"
     },
   ]
 };
