@@ -37,7 +37,7 @@ const projects = [
       description: "Mobile app for tracking electricity usage, built with React Native and Supabase. Features real-time sync and user-friendly analytics dashboard.",
       imgUrl: ElectriFAIApp,
       link: "",
-      technologies: ["React Native", "Supabase", "Electricity Consumption Management"]
+      technologies: ["React Native", "Supabase", "Electricity Consumption Management", "Groq API", "ESP32"]
     },
     {
         title: "PUP Alumni Portal For Graduates (PUPGS)",
@@ -229,17 +229,17 @@ const ProjectsSection = () => {
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {project.technologies.slice(0, 3).map((tech, idx) => (
+                  {project.technologies.slice(0, 4).map((tech, idx) => (
                     <span
                       key={idx}
-                      className="px-2 py-1 bg-accent/10 text-accent-foreground text-xs rounded-full"
+                      className="px-2 py-1 text-tech-light bg-accent/10 text-xs rounded-full"
                     >
                       {tech}
                     </span>
                   ))}
-                  {project.technologies.length > 3 && (
-                    <span className="px-2 py-1 bg-primary/10 text-primary-foreground text-xs rounded-full">
-                      +{project.technologies.length - 3} more
+                  {project.technologies.length > 4 && (
+                    <span className="px-2 py-1 bg-primary/10  text-tech-light text-xs rounded-full">
+                      +{project.technologies.length - 4} more
                     </span>
                   )}
                 </div>
