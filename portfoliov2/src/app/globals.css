@@ -1,0 +1,133 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 171 100% 70%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 171 100% 70%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 171 100% 70%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-mono;
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply font-mono text-2xl sm:text-3xl mb-8 text-tech-lightest relative inline-flex items-center;
+  }
+  
+  .section-title::before {
+    content: ">";
+    @apply text-tech-teal mr-2;
+  }
+  
+  .section-title::after {
+    content: "";
+    @apply h-px w-16 sm:w-32 bg-tech-teal/30 ml-4 inline-block;
+  }
+  
+  .nav-link {
+    @apply text-tech-light hover:text-tech-teal transition-colors duration-300 text-sm font-mono;
+  }
+  
+  .nav-link-number {
+    @apply text-tech-teal mr-1 text-xs;
+  }
+  
+  .btn {
+    @apply px-5 py-3 rounded font-mono text-sm transition-all duration-300 inline-block;
+  }
+  
+  .btn-primary {
+    @apply border border-tech-teal text-tech-teal hover:bg-tech-teal/10;
+  }
+  
+  .btn-secondary {
+    @apply bg-tech-teal text-tech-navy hover:bg-tech-teal/90;
+  }
+
+  .tech-badge {
+    @apply bg-secondary/50 text-tech-light text-xs font-mono px-3 py-1 rounded-full mr-2 mb-2 inline-block;
+  }
+  
+  .terminal-header {
+    @apply flex items-center gap-1.5 px-4 py-2 bg-tech-navy border-b border-tech-slate/30;
+  }
+  
+  .terminal-dot {
+    @apply w-2.5 h-2.5 rounded-full;
+  }
+  
+  .cursor::after {
+    content: "|";
+    @apply animate-blink text-tech-teal;
+  }
+  
+  .code-block {
+    @apply bg-tech-navy border border-tech-slate/30 rounded-md p-4 font-mono text-sm;
+  }
+  
+  .social-icon {
+    @apply text-tech-light hover:text-tech-teal transition-colors duration-300;
+  }
+}
+
+.remove-scollbar {
+  overflow: auto; /* or overflow-y: scroll; */
+  
+  /* For Firefox */
+  scrollbar-width: none; 
+  -ms-overflow-style: none; /* For Internet Explorer 10+ */
+}
+
+/* For Chrome, Safari, and Opera */
+.remove-scollbar::-webkit-scrollbar {
+  display: none;
+}
