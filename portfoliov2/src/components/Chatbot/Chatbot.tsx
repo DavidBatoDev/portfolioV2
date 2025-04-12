@@ -4,7 +4,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { MessageSquare, Send, X } from "lucide-react";
 import ReactMarkdown from 'react-markdown';
 
-const API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY || "";
+const API_KEY = process.env.NEXT_GEMINI_API_KEY || "";
 
 const genAI = new GoogleGenerativeAI(API_KEY);
 
