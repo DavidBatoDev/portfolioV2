@@ -524,6 +524,7 @@ export const Chatbot = () => {
       return (
         <ReactMarkdown
           components={{
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             a: ({ node, ...props }) => (
               <a 
                 {...props} 
@@ -532,21 +533,33 @@ export const Chatbot = () => {
                 rel="noopener noreferrer"
               />
             ),
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             p: ({ node, ...props }) => <p {...props} className="mb-2" />,
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             h1: ({ node, ...props }) => <h1 {...props} className="text-xl font-bold mt-3 mb-2" />,
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             h2: ({ node, ...props }) => <h2 {...props} className="text-lg font-bold mt-3 mb-2" />,
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             h3: ({ node, ...props }) => <h3 {...props} className="text-base font-bold mt-2 mb-1" />,
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             h4: ({ node, ...props }) => <h4 {...props} className="text-sm font-bold mt-2 mb-1" />,
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             ul: ({ node, ...props }) => <ul {...props} className="list-disc pl-5 my-2" />,
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             ol: ({ node, ...props }) => <ol {...props} className="list-decimal pl-5 my-2" />,
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             li: ({ node, ...props }) => <li {...props} className="mb-1" />,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             code: ({ inline, className, children, ...props }: any) => (
               inline ? 
                 <code {...props} className="px-1 py-0.5 bg-tech-navy font-mono text-sm rounded">{children}</code> :
                 <code {...props} className="block p-2 bg-tech-navy font-mono text-sm rounded my-2 whitespace-pre-wrap">{children}</code>
             ),
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             pre: ({ node, ...props }) => <pre {...props} className="my-2" />,
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             blockquote: ({ node, ...props }) => <blockquote {...props} className="border-l-4 border-tech-teal pl-4 italic my-2" />,
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             strong: ({ node, ...props }) => <strong {...props} className="font-bold" />
           }}
         >
@@ -560,21 +573,21 @@ export const Chatbot = () => {
     }
   };
 
-  // Function to handle fullscreen in mobile
-  const handleChatToggle = () => {
-    setIsOpen(true);
+  // // Function to handle fullscreen in mobile
+  // const handleChatToggle = () => {
+  //   setIsOpen(true);
     
-    // For mobile devices, make sure keyboard doesn't push content up
-    if (isMobile) {
-      document.body.style.overflow = 'hidden';
+  //   // For mobile devices, make sure keyboard doesn't push content up
+  //   if (isMobile) {
+  //     document.body.style.overflow = 'hidden';
       
-      // For iOS, ensure viewport adjusts properly
-      if (/iPhone|iPad|iPod/.test(navigator.platform)) {
-        document.documentElement.style.height = '100%';
-        document.body.style.height = '100%';
-      }
-    }
-  };
+  //     // For iOS, ensure viewport adjusts properly
+  //     if (/iPhone|iPad|iPod/.test(navigator.platform)) {
+  //       document.documentElement.style.height = '100%';
+  //       document.body.style.height = '100%';
+  //     }
+  //   }
+  // };
 
   // Function to handle closing chat on mobile
   const handleCloseChat = () => {
