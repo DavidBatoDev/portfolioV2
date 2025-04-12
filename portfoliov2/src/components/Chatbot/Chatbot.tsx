@@ -586,10 +586,10 @@ export const Chatbot = () => {
                   </div>
                 )}
                 <div className="flex flex-col gap-0.5">
-                  <div className={`p-2 px-3 rounded-2xl min-w-[40px] max-w-full relative break-words ${
+                  <div className={`p-2 px-3 rounded-2xl border border-tech-light min-w-[40px] max-w-full relative break-words  ${
                     msg.type === 'user' 
-                      ? 'bg-tech-light text-tech-navy rounded-tr-sm' 
-                      : 'bg-tech-slate text-tech-navy rounded-tl-sm'
+                      ? 'bg-tech-navy text-white rounded-tr-sm' 
+                      : 'bg-tech-navy text-white rounded-tl-sm'
                   }`}>
                     {formatMessageText(msg.text)}
                   </div>
