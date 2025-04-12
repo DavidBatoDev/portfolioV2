@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { MessageSquare, Send, X, Paperclip, Smile } from "lucide-react";
+import ReactMarkdown from 'react-markdown';
 
 const API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY || "";
 
@@ -33,6 +34,7 @@ Experience:
 Skills: HTML, CSS, JavaScript, TypeScript, Python, PHP, C++, React, Node, Express, Flask, Laravel, NextJS, Firebase, MySQL, MongoDB, Supabase, Docker, PyTorch, Google Cloud, Git/GitHub
 
 Projects:
+- IskoChatAI: Scholarship Filipino chatbot using RAG with Google's Custom Search API, Gemini API, and NextJS
 - Alertech Technologies: Fire detection system with IoT using React Native, Firebase, ESP32 with sensors
 - Chat Application with Sentiment Analysis: MERN stack app with real-time messaging and AI emotion detection
 - GDG XParky Points Backend: Flask API with Google Cloud integration
@@ -41,16 +43,16 @@ Projects:
 - PUP Alumni Portal For Graduates (PUPGS): React, PHP Laravel, MySQL, Websocket
 - ElectrifAI Solutions PH Website: React TypeScript
 - ElectrifAI Solutions PH Mobile App: React Native, Supabase
-- Real-estate Website (DavidEstate): React, Express, MongoDB, JWT, Redux
+- OrbLink For Couples: Two LED orbs that sync lighting even when separated by distance using ESP32, Firebase
+- Real-estate Website (DavidEstate): React, Express, MongoDB
 - Blog Website (Technoquatro): React, Firebase
 - E-commerce Website (Ecom): MySQL, Express, React, Node.js
 - Student Curicullar Activity Manager (SCAM): Tkinter, Flask, SQLAlchemy, Websocket
-- Email Spam Classifier: PyTorch, MLP, Flask API
-- California Housing Price Prediction EDA: Python, Pandas, NumPy, Matplotlib, Seaborn
+- Email Spam Classifier: PyTorch, MLP
+- California Housing Price Prediction EDA: Python, Pandas, NumPy, Matplotlib
 - Object Detection (OpenCV): OpenCV with existing model
 - Data Structure Algorithm Visualizer: React, Framer for animations
-- Data Structure Algorithm Visualizer (Mario Theme): React, Framer
-- Constellation Orb ESP32 Firebase: ESP32 Arduino IoT, Firebase Real-time Database
+- Data Structure Algorithm Mario Theme: React, Framer
 
 Certifications: AWS Cloud Practitioner, Generative AI with LLMs (DeepLearning.AI), Python Programmer Bootcamp
 
@@ -198,6 +200,16 @@ const DAVID_RESUME: ResumeData = {
   },
   projects: [
     {
+      name: "IskoChatAI",
+      technologies: "NextJS, TypeScript, Gemini API, TailwindCSS, Google Custom Search API",
+      description: [
+        "Scholarship Filipino Chatbot leveraging Retrieval-Augmented Generation (RAG)",
+        "Used Google's Custom Search API to provide real-time, accurate scholarship information",
+        "Built with NextJS for frontend and Gemini API for intelligent responses",
+        "Implemented responsive design for all device types"
+      ]
+    },
+    {
       name: "Alertech Technologies",
       technologies: "React Native CLI, React, Firebase, ESP32 with DHT22 & MQ-2 Sensors",
       description: [
@@ -233,8 +245,20 @@ const DAVID_RESUME: ResumeData = {
       name: "Arduino Day PH 2025 Website",
       technologies: "NextJS TypeScript, React Libraries, Vercel",
       description: [
-        "Contributed to official Arduino Day PH 2025 website",
-        "Assisted in website deployment to Arduino Philippines site"
+        "Developed official Arduino Day PH 2025 website",
+        "Implemented responsive design with modern UI/UX principles",
+        "Added dynamic program flow and smooth animations",
+        "Created event registration functionality"
+      ]
+    },
+    {
+      name: "OrbLink For Couples",
+      technologies: "ESP32, Firebase, Arduino, C++",
+      description: [
+        "Created two LED orbs that light up in sync even when separated by distance",
+        "Built with ESP32 microcontrollers connected via Firebase for real-time data sync",
+        "Implemented unique color patterns and lighting modes",
+        "Used efficient power management for extended battery life"
       ]
     }
   ],
@@ -265,7 +289,7 @@ const checkForProjectLink = (query: string): string | null => {
   
   for (const [keyword, link] of Object.entries(PROJECT_LINKS)) {
     if (query.includes(keyword)) {
-      return `Here's the link to that project: ${link}`;
+      return `Here's the link to that project: [${keyword}](${link})`;
     }
   }
   
@@ -290,14 +314,14 @@ const getAdditionalDetails = (query: string): string => {
     );
     
     if (relevantProjects.length > 0) {
-      details += "\n\nProject details:";
+      details += "\n\n### Project details:";
       relevantProjects.forEach(project => {
-        details += `\n${project.name} (${project.technologies}):\n- ${project.description.join("\n- ")}`;
+        details += `\n#### ${project.name} (${project.technologies}):\n- ${project.description.join("\n- ")}`;
       });
     } else {
-      details += "\n\nProjects overview:";
+      details += "\n\n### Projects overview:";
       DAVID_RESUME.projects.forEach(project => {
-        details += `\n- ${project.name}: ${project.description[0]}`;
+        details += `\n- **${project.name}**: ${project.description[0]}`;
       });
     }
   }
@@ -310,23 +334,23 @@ const getAdditionalDetails = (query: string): string => {
     );
     
     if (relevantExperience.length > 0) {
-      details += "\n\nExperience details:";
+      details += "\n\n### Experience details:";
       relevantExperience.forEach(exp => {
-        details += `\n${exp.title} at ${exp.company || exp.organization} (${exp.duration}):\n- ${exp.responsibilities.join("\n- ")}`;
+        details += `\n#### ${exp.title} at ${exp.company || exp.organization} (${exp.duration}):\n- ${exp.responsibilities.join("\n- ")}`;
       });
     }
   }
   
   if (query.includes("skill") || query.includes("technology") || query.includes("language") || query.includes("framework")) {
-    details += "\n\nSkills breakdown:";
-    details += `\n- Languages: ${DAVID_RESUME.skills.languages.join(", ")}`;
-    details += `\n- Frameworks/Libraries: ${DAVID_RESUME.skills.frameworks.join(", ")}`;
-    details += `\n- Databases: ${DAVID_RESUME.skills.databases.join(", ")}`;
-    details += `\n- Other technologies: ${DAVID_RESUME.skills.other.join(", ")}`;
+    details += "\n\n### Skills breakdown:";
+    details += `\n- **Languages**: ${DAVID_RESUME.skills.languages.join(", ")}`;
+    details += `\n- **Frameworks/Libraries**: ${DAVID_RESUME.skills.frameworks.join(", ")}`;
+    details += `\n- **Databases**: ${DAVID_RESUME.skills.databases.join(", ")}`;
+    details += `\n- **Other technologies**: ${DAVID_RESUME.skills.other.join(", ")}`;
   }
   
   if (query.includes("available") || query.includes("hire") || query.includes("contact") || query.includes("reach")) {
-    details += "\n\nDavid is always available for new opportunities and discussions. You can reach him at batobatodavid20@gmail.com or (+63) 9944345742.";
+    details += "\n\n**David is always available for new opportunities and discussions.** You can reach him at batobatodavid20@gmail.com or (+63) 9944345742.";
   }
   
   return details;
@@ -366,9 +390,6 @@ export const Chatbot = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   
-  
-
-
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
@@ -437,7 +458,10 @@ export const Chatbot = () => {
         const additionalDetails = getAdditionalDetails(input);
         
         // Create the context for this interaction
-        const contextMessage = `You are David's assistant. Answer as if you're representing David based on his resume information. 
+        const contextMessage = `You are David's assistant. Answer as if you're representing David based on his resume information.
+        Use Markdown formatting in your responses to make them more readable.
+        Use **bold** for emphasis, *italics* for skills, ## for headings, and bullet points where appropriate.
+        Format links as [text](url).
         If you don't know the answer, tell them to contact David directly at batobatodavid20@gmail.com.
         If they ask about availability, emphasize that David is always free and provide his contact information.
         ${DAVID_RESUME_INFO}${additionalDetails}`;
@@ -494,10 +518,46 @@ export const Chatbot = () => {
     }
   };
 
-  const formatMessageText = (text: string) => {
-    return text.split('\n').map((line, i) => (
-      <p key={i}>{line || <br />}</p>
-    ));
+  // Updated to use ReactMarkdown for bot messages
+  const formatMessageText = (text: string, isBot: boolean) => {
+    if (isBot) {
+      return (
+        <ReactMarkdown
+          components={{
+            a: ({ node, ...props }) => (
+              <a 
+                {...props} 
+                className="text-blue-400 hover:underline" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              />
+            ),
+            p: ({ node, ...props }) => <p {...props} className="mb-2" />,
+            h1: ({ node, ...props }) => <h1 {...props} className="text-xl font-bold mt-3 mb-2" />,
+            h2: ({ node, ...props }) => <h2 {...props} className="text-lg font-bold mt-3 mb-2" />,
+            h3: ({ node, ...props }) => <h3 {...props} className="text-base font-bold mt-2 mb-1" />,
+            h4: ({ node, ...props }) => <h4 {...props} className="text-sm font-bold mt-2 mb-1" />,
+            ul: ({ node, ...props }) => <ul {...props} className="list-disc pl-5 my-2" />,
+            ol: ({ node, ...props }) => <ol {...props} className="list-decimal pl-5 my-2" />,
+            li: ({ node, ...props }) => <li {...props} className="mb-1" />,
+            code: ({ inline, className, children, ...props }: any) => (
+              inline ? 
+                <code {...props} className="px-1 py-0.5 bg-tech-navy font-mono text-sm rounded">{children}</code> :
+                <code {...props} className="block p-2 bg-tech-navy font-mono text-sm rounded my-2 whitespace-pre-wrap">{children}</code>
+            ),
+            pre: ({ node, ...props }) => <pre {...props} className="my-2" />,
+            blockquote: ({ node, ...props }) => <blockquote {...props} className="border-l-4 border-tech-teal pl-4 italic my-2" />,
+            strong: ({ node, ...props }) => <strong {...props} className="font-bold" />
+          }}
+        >
+          {text}
+        </ReactMarkdown>
+      );
+    } else {
+      return text.split('\n').map((line, i) => (
+        <p key={i} className="mb-2">{line || <br />}</p>
+      ));
+    }
   };
 
   // Function to handle fullscreen in mobile
@@ -543,7 +603,7 @@ export const Chatbot = () => {
           className={`fixed bottom-0 lg:bottom-5 right-5 ${isMobile ? 'w-full h-full bottom-0 right-0 left-0 rounded-none' : 'w-[350px] h-[520px] rounded-2xl'} bg-[#1e1e3f] shadow-xl flex flex-col overflow-hidden font-sans z-[14444000] border border-[#342b55] animate-[slide-up_0.3s_ease-out]`}
           style={isMobile ? {height: `${viewportHeight}px`} : {}}
         >
-          <div className="px-4 py-3 bg-tech-navy border-b border-tech-light flex justify-between items-center">
+          <div className="px-4 py-3 bg-tech-navy border-b border-tech-light flex justify-between items-center remove-scollbar">
             <div className="flex items-center gap-3">
               <div className="relative">
                 <div className="w-10 h-10 rounded-full bg-tech-teal text-tech-navy flex items-center justify-center font-semibold text-lg">
@@ -561,7 +621,7 @@ export const Chatbot = () => {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-4 bg-tech-navy scrollbar-thin scrollbar-thumb-[#342b55] scrollbar-track-transparent scrollbar-thumb-rounded">
+          <div className="flex-1 remove-scollbar overflow-y-auto p-4 flex flex-col gap-4 bg-tech-navy scrollbar-thin scrollbar-thumb-[#342b55] scrollbar-track-transparent scrollbar-thumb-rounded">
             {messages.length === 0 && (
               <div className="flex items-start gap-3 bg-tech-navy rounded-lg p-4 shadow max-w-[85%] mx-auto border border-tech-light">
                 <div className="flex-shrink-0">
@@ -586,12 +646,12 @@ export const Chatbot = () => {
                   </div>
                 )}
                 <div className="flex flex-col gap-0.5">
-                  <div className={`p-2 px-3 rounded-2xl border border-tech-light min-w-[40px] max-w-full relative break-words  ${
+                  <div className={`p-2 px-3 rounded-2xl remove-scollbar border border-tech-light min-w-[40px] max-w-full relative break-words ${
                     msg.type === 'user' 
                       ? 'bg-tech-navy text-white rounded-tr-sm' 
                       : 'bg-tech-navy text-white rounded-tl-sm'
                   }`}>
-                    {formatMessageText(msg.text)}
+                    {formatMessageText(msg.text, msg.type === 'bot')}
                   </div>
                   <div className={`flex items-center gap-1 text-xs ${msg.type === 'user' ? 'justify-end' : ''}`}>
                     <span className="text-[#a8a8c8]">{msg.time}</span>
@@ -613,7 +673,7 @@ export const Chatbot = () => {
                 <div className="flex flex-col gap-0.5">
                   <div className="p-2 px-3 rounded-2xl min-w-[40px] bg-tech-slate text-[#d1d1e6] rounded-tl-sm">
                     <div className="flex items-center py-2 gap-0.5">
-                      <span className="w-2 h-2 bg-tech-navy rounded-full inline-block opacity-40 animate-[pulse_1s_infinite]"></span>
+                    <span className="w-2 h-2 bg-tech-navy rounded-full inline-block opacity-40 animate-[pulse_1s_infinite]"></span>
                       <span className="w-2 h-2 bg-tech-navy rounded-full inline-block opacity-40 animate-[pulse_1s_infinite_0.2s]"></span>
                       <span className="w-2 h-2 bg-tech-navy rounded-full inline-block opacity-40 animate-[pulse_1s_infinite_0.4s]"></span>
                     </div>
