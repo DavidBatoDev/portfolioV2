@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { MessageSquare, Send, X, Paperclip, Smile } from "lucide-react";
+import { MessageSquare, Send, X } from "lucide-react";
 import ReactMarkdown from 'react-markdown';
 
 const API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY || "";
@@ -630,8 +630,8 @@ export const Chatbot = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="m-0 mb-2 text-[15px] font-semibold text-white">Hi, I'm David's Assistant</h3>
-                  <p className="m-0 text-sm text-[#d1d1e6]">👋 Hello! I can tell you about David's skills, experience, projects, and qualifications. How can I help you today?</p>
+                  <h3 className="m-0 mb-2 text-[15px] font-semibold text-white">Hi, I&apos;m David&apos;s Assistant</h3>
+                  <p className="m-0 text-sm text-[#d1d1e6]">👋 Hello! I can tell you about David&apos;s skills, experience, projects, and qualifications. How can I help you today?</p>
                 </div>
               </div>
             )}
