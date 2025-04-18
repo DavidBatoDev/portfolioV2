@@ -43,11 +43,11 @@ const projects = [
     },
     {
       title: "IskoChatAI",
-      description: "A scholarship Filipino Chatbot leveraging Retrieval-Augmented Generation (RAG) using Google Custom Search API. Built with NextJS and Gemini API to deliver real-time, accurate answers based on live web content.",
+      description: "A scholarship Filipino Chatbot leveraging Retrieval-Augmented Generation (RAG) using Sentence-transformers, Vector Supabase DB and Google Custom Search API. Built with NextJS and Gemini API to deliver real-time, accurate answers based on the database and live web content.",
       imgUrl: IskoChat,
       githubLink: "https://github.com/DavidBatoDev/iskochatai",
       deployedLink: "https://scholarship-helper.vercel.app/",
-      technologies: ["NextJS", "TypeScript", "Gemini API", "TailwindCSS"]
+      technologies: ["NextJS", "TypeScript", "Gemini API", "Paraphrase-multilingual-MiniLM-L12-v2",  "TailwindCSS"]
     },
     {
       title: "ElectrifAI Solutions PH Website",
