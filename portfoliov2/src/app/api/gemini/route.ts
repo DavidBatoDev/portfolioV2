@@ -1,13 +1,15 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextRequest, NextResponse } from "next/server";
 
-// Use environment variable for API key
-const API_KEY = process.env.GEMINI_API_KEY || "";
+const createGeminiClient = (): GoogleGenerativeAI => {
+  const apiKey = process.env.GEMINI_API_KEY;
 
-console.log("API Key:", API_KEY); // For debugging purposes, remove in production
+  if (!apiKey) {
+    throw new Error("GEMINI_API_KEY is not configured");
+  }
 
-// Initialize the Gemini client
-const genAI = new GoogleGenerativeAI(API_KEY);
+  return new GoogleGenerativeAI(apiKey);
+};
 
 // David's resume info (moved from client)
 const DAVID_RESUME_INFO = `
@@ -325,6 +327,8 @@ export async function POST(req: NextRequest) {
     If they ask about availability, emphasize that David is always free and provide his contact information.
     ${DAVID_RESUME_INFO}${additionalDetails}`;
     
+    const genAI = createGeminiClient();
+
     // Initialize the model
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
     
@@ -339,6 +343,18 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ text });
   } catch (error) {
     console.error("Error:", error);
+
+    if (error instanceof Error && error.message.includes("GEMINI_API_KEY")) {
+      return NextResponse.json(
+        {
+          text: "Chatbot is temporarily unavailable. Please contact David directly at batobatodavid20@gmail.com.",
+        },
+        {
+          status: 503,
+        }
+      );
+    }
+
     return NextResponse.json({ 
       text: "Sorry, I encountered an error. Please contact David directly at batobatodavid20@gmail.com."
     }, { 
