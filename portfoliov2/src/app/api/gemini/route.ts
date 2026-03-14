@@ -421,7 +421,8 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ text });
   } catch (error) {
-    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error";
     console.error("Gemini route error:", error);
 
     if (errorMessage.includes("GEMINI_API_KEY")) {
