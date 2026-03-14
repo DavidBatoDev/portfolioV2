@@ -54,7 +54,7 @@ const projects = [
       description: "Corporate site for ElectrifAI showcasing AI-powered electricity solutions. Built with React, TypeScript, and responsive design for all devices.",
         imgUrl: ElectrifAIWeb,
         githubLink: "",
-        deployedLink: "https://electrifai.tech/",
+        deployedLink: "https://electrifaiph.tech/",
         technologies: ["React", "TypeScript", "Responsive Design"]
     },
     {
