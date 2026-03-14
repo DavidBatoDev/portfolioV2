@@ -104,15 +104,20 @@ export const Chatbot = () => {
       });
 
       const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to get response");
+        if (!response.ok && !data?.text) {
+          throw new Error(data?.error || "Failed to get response");
       }
 
       // Update messages state with the response
       setMessages((prev) => [
         ...prev,
-        { type: "bot", text: data.text, time: formatTime() },
+          {
+            type: "bot",
+            text:
+              data?.text ||
+              "Sorry, I encountered an error. Please contact David directly at batobatodavid20@gmail.com.",
+            time: formatTime(),
+          }
       ]);
     } catch (error) {
       console.error("Error:", error);

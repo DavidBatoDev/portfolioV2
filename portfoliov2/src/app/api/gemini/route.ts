@@ -404,7 +404,7 @@ export async function POST(req: NextRequest) {
     const genAI = createGeminiClient();
 
     // Initialize the model
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
 
     // Generate content with proper formatting for Gemini API
     const result = await model.generateContent({
@@ -421,12 +421,14 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ text });
   } catch (error) {
-    console.error("Error:", error);
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    console.error("Gemini route error:", error);
 
-    if (error instanceof Error && error.message.includes("GEMINI_API_KEY")) {
+    if (errorMessage.includes("GEMINI_API_KEY")) {
       return NextResponse.json(
         {
           text: "Chatbot is temporarily unavailable. Please contact David directly at batobatodavid20@gmail.com.",
+          error: "Missing server API key configuration",
         },
         {
           status: 503,
@@ -434,9 +436,35 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // Most runtime failures here come from the external Gemini API
+    // (invalid key, quota exceeded, model access, or provider outage).
+    const isProviderError =
+      /api key|quota|rate|permission|forbidden|unauthorized|429|503|model/i.test(
+        errorMessage,
+      );
+
+    if (isProviderError) {
+      return NextResponse.json(
+        {
+          text: "The AI service is temporarily unavailable. Please try again in a moment, or contact David directly at batobatodavid20@gmail.com.",
+          error:
+            process.env.NODE_ENV === "development"
+              ? errorMessage
+              : "AI provider request failed",
+        },
+        {
+          status: 502,
+        },
+      );
+    }
+
     return NextResponse.json(
       {
         text: "Sorry, I encountered an error. Please contact David directly at batobatodavid20@gmail.com.",
+        error:
+          process.env.NODE_ENV === "development"
+            ? errorMessage
+            : "Internal server error",
       },
       {
         status: 500,
